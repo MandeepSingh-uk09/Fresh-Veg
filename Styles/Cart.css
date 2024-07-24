@@ -11,6 +11,7 @@ header{
 /* Fresh VEG ICON*/
 
 .Fresh-Veg{
+    cursor: pointer;
     display: flex;
     align-items: center;
 }
@@ -21,7 +22,6 @@ header{
     border-radius: 50%;
 }
 .Fresh-Veg > div > h2 {
-    cursor: pointer;
     display: inline;
     margin: 0%;
     margin-left: 0.4em;
@@ -41,7 +41,7 @@ header{
 nav{
     display: flex;
     align-items: center;
-    
+    cursor: pointer;
     margin-left: 0.4em;
     border-bottom: 1px solid transparent;
 }
@@ -60,18 +60,6 @@ nav>h3{
 
 
 
-.Navigation>img{
-    cursor: pointer;
-    width: 1.5rem;
-    padding-right: 1em;
-}
-
-@media (min-width:890px){
-    .Nav-Icon{
-        display: none;
-    }
-}
-
 /* Location --------------------------------------*/
 
 .Summary{
@@ -88,7 +76,7 @@ nav>h3{
 }
 
 .Cart-items{
-    width: 48%;
+    width: 50%;
 }
 
 .Cart-items>h2{
@@ -124,6 +112,7 @@ nav>h3{
 .Card-Pic{
     display: flex;
     align-items: center;
+    font-size: medium;
 }
 
 .Card-Pic>img{
@@ -141,8 +130,8 @@ nav>h3{
 }
 
 .Quantity>img{
-    width: 1.5rem;
-    padding: 0 0.2em;
+    width: 1.2rem;
+    padding: 0 0.1em;
 }
 .Quantity>h3,
 .Quantity>h4{
@@ -163,7 +152,7 @@ nav>h3{
 
 
 .Bill{
-    width: calc(50% - 2em);
+    width: calc(48% - 2em);
     background-image: url("/Styles/Fresh-Veg-Blur.png");
     background-position: center;
     background-size: cover;
@@ -173,7 +162,6 @@ nav>h3{
 
     display: flex;
     flex-direction: column;
-    justify-content: baseline;
 
 }
 .Bill>div{
@@ -271,4 +259,83 @@ nav>h3{
     color: white;
     font-weight: bold;
     font-size: large;
+}
+
+@media (max-width:1000px) {
+    .Summary{
+        flex-direction: column;
+    }
+    .Cart-items{
+        width: 100%;
+    }
+    .Bill{
+        width: calc(100% - 2em);
+    }
+    .Bill>div{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .Address-Card{
+        width: calc(49% - 2em);
+        height: max-content;
+    }
+    .Delivery-By{
+        width: calc(49% - 1em);
+    }
+    .Delivery-By>h4{
+        margin: 0;
+        margin-bottom: 5px;
+    }
+    .Delivery-By>button{
+        margin-top: 10px;
+        font-size: medium;
+        width: 50%;
+        height: rem;
+    }
+}
+
+@media (max-width:750px){
+    .Summary{
+        width: 90%;
+    }
+}
+
+@media (max-width:650px){
+    .Bill>div{
+        flex-direction: column;
+    }
+    
+    .Address-Card{
+        width: calc(100% - 2em);
+        height: max-content;
+        margin-bottom: 2em;
+    }
+    .Delivery-By{
+        width: calc(100%);
+    }
+    .Delivery-By>h4{
+        margin: 0;
+        margin-bottom: 1em;
+    }
+    .Delivery-By>button{
+        margin-top: 2em;
+        font-size: medium;
+        width: 50%;
+        height: rem;
+    }
+}
+
+@media (max-width:450px) {
+    .Item-Card{
+        font-size: 0.1rem;
+    }
+    .Manage-Card>img{
+        width: 1.2rem;
+        padding-right: 3em;
+    }
+    .Card-Pic>img{
+        width: 2em;
+        height: 2em;
+    }
 }
