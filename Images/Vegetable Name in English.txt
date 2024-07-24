@@ -1,0 +1,54 @@
+Potato
+Tomato
+Onion
+Brinjal
+G/Chili
+R/Chilli
+Bhindi
+Ginger
+Cucumber
+Coriander
+Cauliflower
+Cabbage
+Radish
+Carrot
+Capsicum
+Peas
+Maize
+Jackfruit
+Pumpkin
+S/Potato
+Loki
+Beetroot
+Spinach
+Broccoli
+Methi
+R/cabbage
+Mushroom
+Curry Leaf
+Tinde
+Salgam
+Faliyan
+G/Mustard
+Batho
+Mint
+Fennel
+G/Onion
+Arbi Leaf
+Celery
+Tori
+Lotus Root
+Sorrel
+Tapioca
+Taro root
+W/Spinach
+Purslane
+Locarno
+Artichoke
+
+
+
+
+
+
+

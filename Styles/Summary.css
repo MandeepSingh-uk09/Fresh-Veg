@@ -1,0 +1,49 @@
+.Selected-Items{
+    position: sticky;
+    top: 0;    
+}
+.Selected-Items>h2{
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.Total{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.Total> h4{
+    margin: 10px 5px;
+}
+
+.Selected-Items>div>div{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.Cart-Item>h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+.Cart-Item-Qty{
+    font-weight: bold;
+    color: green;
+}
+
+div.Cart:last-child{
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.Selected-Items>button{
+
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    height: 3em;
+    color: white;
+    font-weight: bold;
+    background-color: #28921e;
+    border-radius: 0px 0px 5px 5px;
+}

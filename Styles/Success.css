@@ -1,0 +1,46 @@
+.Success{
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-color: white;
+    left: -10%;
+    border-radius: 2em;
+
+    /* Animation */
+    top: -50%;
+    transform: translate(0,-45%) scale(0.1) ;
+    
+    visibility: hidden;
+
+    transition: top 2s, transform 2s ;
+}
+
+.PopUp{
+    top: -10%;
+    transform: translate(0,0) scale(1);
+    visibility: visible;
+}
+
+.Success>div{
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border: 2px solid #28921e;
+    border-radius: 2em;
+
+    position: relative;
+}
+
+.Success>div>div{
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    height: 40%;
+    width: 40%;
+
+}
+.Go-back{
+    margin-top: 1em;
+    width: 80%;
+    color: white;
+    font-size: 1.1em;
+}

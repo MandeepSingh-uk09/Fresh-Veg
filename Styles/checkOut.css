@@ -1,0 +1,212 @@
+.Place-Order{
+    background-image: url(Fresh-Veg-Blur.png);
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Place-Order>div{    
+    font-size: 16px;
+    width: calc(50% - 2em);
+    height: calc(80% - 2em);
+    background-color: white;    
+    padding: 1em;
+    border-radius: 2em;
+      
+}
+.Select-Slot{
+    position: relative;
+    text-align: center;
+        width: calc(100% - 2em);
+        height: calc(100% - 2em);
+        border: 2px solid #49AD3A;
+        border-radius: 1.5em;
+        padding: 1em;
+}
+
+.Select-Slot>a>img{
+    cursor: pointer;
+    display: block;
+    width: 1.2rem;
+}
+
+.Select-Slot>h3{
+    margin: auto;
+    width: 80%;
+    border-bottom: 2px solid black;
+    margin-bottom: 1em;
+}
+.Day-Selector{
+    width: 80%;
+    margin: 1em auto;
+    display: flex;
+    justify-content: space-evenly;
+    
+    margin-bottom: 2em;
+}
+.Day-Selector>div{
+    width: 40%;
+    font-size: 1.2em;
+    min-width: min-content;
+    height: 2em;
+    background-color: white;
+    border: 2px solid #49AD3A;
+    border-radius: 1.5em;
+
+    display: flex;
+    align-items: center;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    font-weight: lighter;    
+}
+.Day-Selector>div>input{
+    margin: 0;
+    cursor: pointer;
+    height: 90%;
+    opacity: 0;
+    width: 0rem;
+}
+.Day-Selector>div>label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.Day-Selector>div:has(input[type="radio"]:checked){        
+    background-color: #49AD3A;
+    color: white;
+    
+}
+
+/*-------------------------------*/
+.Time-Picker{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.Select-time{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 1em;
+    justify-content: space-evenly;
+    padding: 0.5em;
+}
+
+.Select-time>div{
+    cursor: pointer;
+    width: 45%;
+    height: 3rem;
+    min-width: fit-content;
+    background-color: white;
+    border: 1px solid #49AD3A;
+    border-radius: 1em;
+
+    display: flex;
+    justify-content: center;
+}
+.Select-time>div>input{
+
+    width: 0;
+    opacity: 0;
+    margin: 0;
+}
+.Select-time>div>label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.9em;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+.Select-time>div:has(input[type="radio"]:checked){
+    background-color: #49AD3A;
+    color: white;
+}
+
+
+/*--------------------------------*/
+
+button{
+    cursor: pointer;
+    position: relative;
+    width: 40%;
+    height: 3rem;
+    padding: 0;
+    outline: none;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 2em;
+    
+    transition: 500ms;
+}
+.btn-Transition{
+    width: 80%;
+    height: 2rem;    
+}
+button>div{
+    position: absolute;
+    
+    background-color: #49AD3A;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+}
+button>span{
+    position: relative;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}
+
+.btn-Cancel{
+    display: none;
+    margin-top: 0.5em;
+    background-color: rgb(230, 32, 32);
+    color: white;
+    font-size: 1em;
+    height: 1.5em;
+    width: 20%;
+}
+/*Media Queries*/
+
+@media (max-width:750px){
+    .Place-Order>div{
+        width: 80%;
+    }    
+}
+@media(max-width:500px){
+    .Select-Slot{
+        font-size: 12px;
+    }
+    .Select-time{
+        flex-direction: column;
+    }
+    .Select-time>div{
+        height: 2em;
+        width: 80%;
+    }
+    .Time-Picker>button{
+        width: 50%;
+        height: 3em;
+        font-size: 1em;
+    }
+}

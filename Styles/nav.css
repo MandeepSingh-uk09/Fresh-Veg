@@ -1,0 +1,154 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #49AD3A;
+    width: 100%;
+    height: max-content;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+/* Fresh VEG ICON*/
+
+.Fresh-Veg{
+    display: flex;
+    align-items: center;
+}
+.Logo{
+    padding: 4px;
+    padding-bottom: 0;
+    width: 60px;
+    border-radius: 50%;
+}
+.Fresh-Veg > div > h1 {
+    cursor: pointer;
+    display: inline;
+    margin: 0%;
+    margin-left: 0.4em;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+/* SEARCH BOX ----------------------------------------------------------*/
+
+.Search{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Search >div{
+    border: 1px solid black;
+    border-radius: 2em;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.Search >div> input{
+    border: none;
+    background-color: transparent;
+    width: 80%;
+
+    font-size: large;
+    font-weight: lighter;
+}
+
+.Search >div> input:focus{
+    outline: none;
+}
+
+
+.Search> div>button{
+    cursor: pointer;
+    border: none;
+    width: 10%;
+    background-color: transparent;
+    padding: 0;
+    
+}
+.Search> div>button>img{
+    width: 100%;
+    max-width: 32px;
+}
+
+@media (max-width:600px) {
+    .Search{
+        display: none;
+    }   
+}
+
+/* NAVIGATION ----------------------------------------------------------------*/
+
+.Navigation{
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+nav{
+    display: flex;
+    align-items: last baseline;
+}
+nav>div>div{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+nav > h1,
+nav > div>h3 {
+
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+    margin: 0;
+    padding: 0 0.5em;
+}
+nav > div>div>h6,h4{
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0 0.5em;
+    padding: 0;
+}
+#Location{
+    visibility: hidden;
+    cursor: pointer;
+}
+
+@media (max-width:890px) {
+    .Search{
+        display: none;
+    }   
+}
+
+.Navigation>img{
+    cursor: pointer;
+    width: 1.5rem;
+    padding-right: 1em;
+}
+
+@media (min-width:890px){
+    .Nav-Icon{
+        display: none;
+    }
+}
+
+/* Location --------------------------------------*/
+
+.Location{      
+    
+    margin: 5px;
+    text-align: end;
+    padding-right: 5%;
+}
+.Location>div{
+    display: inline;
+    padding: 5px;
+    background-color: aqua;
+}

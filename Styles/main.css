@@ -1,0 +1,115 @@
+main{
+    margin: 15vh 5vw;
+    width: 90vw;
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+}
+.Content,
+.Selected-Items{
+    background-color: #EEF6F4;
+    height: 100%;
+    border-radius: 5px; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.84);
+    
+}
+.Content{
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    width: 75%;
+    padding: 10px ;
+}
+.Selected-Items{
+    width: 20%;
+}
+
+@media (max-width:700px){
+    main{
+        width: 90vw;
+        margin: 5vh auto;
+        flex-direction: column;
+        align-items: start;
+    }
+    .Content{
+
+        width: inherit;        
+        padding: 10px 0px;
+    }
+    .Selected-Items{
+        display: none;
+    }
+}
+
+
+/* ITem Card -----------------------------------------------*/
+
+.Card{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    border: 1px solid black;
+    height: 260px;
+    width: 160px;
+    padding: 5px;
+}
+
+.Card>img{    
+    width: 100%;
+    max-height: 160px;
+    
+}
+.Card>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.Item-name>h3,h4{
+    margin: 0%;
+    display: inline;
+}
+.Item-name>h4{
+    color: green;
+    font-size: 0.9em;
+}
+.Item-name>h4::first-letter{
+    color: black;
+}
+.Item-Qty{
+    display: flex;
+    justify-content: space-around;
+}
+.Item-Qty>button{
+    margin-top: 0.5em;
+    cursor: pointer;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 5em;
+
+    padding: 5px 10px;
+
+    font-weight: bold;
+}
+
+.Item-Qty>button:hover,
+.Item-Qty>button:focus{
+    background-color: #28921e;
+    color: white;
+}
+
+.Card>button{
+    width: 95%;
+    margin: 10px 2.5% 0px;
+    padding: 5px;
+
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+
+    background-color: #28921e;
+    border: 1px solid black;
+    border-radius: 10em;
+}

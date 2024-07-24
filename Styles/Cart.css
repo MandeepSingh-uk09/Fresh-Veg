@@ -1,0 +1,274 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #49AD3A;
+    width: 100%;
+    height: max-content;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+/* Fresh VEG ICON*/
+
+.Fresh-Veg{
+    display: flex;
+    align-items: center;
+}
+.Logo{
+    padding: 4px;
+    padding-bottom: 0;
+    width:40px;
+    border-radius: 50%;
+}
+.Fresh-Veg > div > h2 {
+    cursor: pointer;
+    display: inline;
+    margin: 0%;
+    margin-left: 0.4em;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+
+/* NAVIGATION ----------------------------------------------------------------*/
+
+.Navigation{
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+nav{
+    display: flex;
+    align-items: center;
+    
+    margin-left: 0.4em;
+    border-bottom: 1px solid transparent;
+}
+nav:hover{
+    border-color: black;
+}
+nav>img{
+    width: 1rem;
+    margin-left: 0.4em;
+    padding-right:0.4em;
+}
+nav>h3{
+    margin: 0;
+}
+
+
+
+
+.Navigation>img{
+    cursor: pointer;
+    width: 1.5rem;
+    padding-right: 1em;
+}
+
+@media (min-width:890px){
+    .Nav-Icon{
+        display: none;
+    }
+}
+
+/* Location --------------------------------------*/
+
+.Summary{
+    width:75%;    
+    background-color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 50px auto;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px #a7a7a7;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.Cart-items{
+    width: 48%;
+}
+
+.Cart-items>h2{
+    margin: 0;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #bbb;
+}
+
+.Items{
+    display: flex;
+    flex-direction: column;
+}
+.Items>h6{
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: smaller;
+}
+
+.Item-Card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #bbb;
+    border-radius: 0.5em;
+    width: calc(100% - 1em);
+    height: 4rem;
+
+    padding: 0.5em;
+
+    margin-bottom: 10px;
+}
+
+.Card-Pic{
+    display: flex;
+    align-items: center;
+}
+
+.Card-Pic>img{
+    width: 4rem;
+    height: 4rem;
+}
+.Card-Pic>h3{
+    margin: 0;
+    padding-left: 0.2em;
+}
+
+.Quantity{
+    display: flex;
+    align-items: center;
+}
+
+.Quantity>img{
+    width: 1.5rem;
+    padding: 0 0.2em;
+}
+.Quantity>h3,
+.Quantity>h4{
+    margin: 0;
+}
+
+.Manage-Card{
+    display: flex;
+    height: max-content;
+}
+.Manage-Card>img{
+    width: 1.5rem;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+/* ------------------------------- -      */
+
+
+.Bill{
+    width: calc(50% - 2em);
+    background-image: url("/Styles/Fresh-Veg-Blur.png");
+    background-position: center;
+    background-size: cover;
+
+    border-radius: inherit;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+
+}
+.Bill>div{
+    padding-top: 2em;
+    position: sticky;
+    top: 0;
+}
+
+.Address-Card{
+    width: calc(100% - 2em);
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+.Address{
+    display: flex;
+    flex-direction: column;
+}
+
+.Address>h4{
+    margin: 0;
+    border-bottom: 1px solid #bbb;
+}
+
+.User-details{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 1em;
+}
+.User-details>h3{
+    margin: 0;
+}
+.User-details>div>h6{
+    margin: 0;
+    text-align: right;
+    font-size: medium;
+}
+
+.User-address{
+    width: 100%;
+}
+.User-address>h5{
+    margin-bottom: 0;
+    font-size: larger;
+}
+.User-address>sub{
+    margin: 0;
+    font-size: medium;
+}
+
+/*-------------------------------*/
+
+.Delivery-By{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Delivery-By>h4{
+    margin: 20px 0 10px;
+    color: white;
+    font-size: large;
+    border-bottom: 2px solid ;
+}
+.Delivery-By>div{
+    background-color: white;
+    border-radius:1em;
+    padding: 0.5em;
+}
+
+.Amount{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Amount>h5{
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: medium;
+}
+
+.Amount:last-child{
+    border-top: 1px solid black;
+}
+
+.Amount>h4{
+    margin: 0.5em 0;
+    font-size: large;
+}
+
+.Delivery-By>button{
+    margin: 3em auto 1em;
+    background-color: #49AD3A;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}

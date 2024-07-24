@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fresh-Veg</title>
+    <link rel="icon" href="Images/Fresh-veg.jpg">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'  href='Styles/Index.css'>
+    <link rel="stylesheet" href="Styles/General.css">
+</head>
+<body>
+    <header>
+        <a href="https://mandeepsingh09.netlify.app/">            
+            <h1>Mandeep Singh</h1>
+        </a>
+    </header>
+    <main>
+        <div class="signUp">
+            <h1>Fresh-Veg</h1>
+            <h3>Welcome to Nature's Bounty:</h3>
+            <form id="Form" onsubmit="getUser()">
+                <div class="input">
+                    <div class="Label" onclick="labelTransition(1)">
+                        <label class="Input-Label1" for="Name">Name</label>
+                        <input id="Name" type="text" required>
+                    </div>
+                    <div class="Label" onclick="labelTransition(2)">
+                        <label class="Input-Label2" for="Mobile">Mobile No.</label>
+                        <input id="Mobile" type="number" minlength="10" maxlength="10" required>
+                    </div>                  
+                </div>
+
+                <div class="input">
+                    <div class="Label" onclick="labelTransition(3)">
+                        <label class="Input-Label3" for="Email">Email</label>
+                        <input id="Email" type="email" required>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <div class="Label" onac onclick="labelTransition(4)">
+                        <label class="Input-Label4" for="HouseNo">House No.</label>
+                        <input id="HouseNo" type="text">
+                    </div>                                        
+                    <div class="Label" onclick="labelTransition(5)">
+                        <label class="Input-Label5" for="Area">Area</label>                        
+                        <input id="Area" type="text">
+                    </div>
+                </div>
+
+                <div class="input">
+                    <div class="Label" onclick="labelTransition(6)">
+                        <label class="Input-Label6" for="City">City</label>
+                        <input id="City" type="text">
+                    </div>                    
+                    <div class="Label" onclick="labelTransition(7)">
+                        <label class="Input-Label7" for="State">State</label>
+                        <input id="State" type="text">
+                    </div>
+                    
+                </div>
+                <div class="input">
+                    <div class="Label" onclick="labelTransition(8)">
+                        <label class="Input-Label8" for="Pin-Code">Pin Code</label>
+                        <input id="Pin-Code" type="number" minlength="6" maxlength="6" required>
+                    </div>                        
+                </div>
+
+                <button>Submit</button>
+            </form>
+        </div>
+        <div class="image">
+            <div><img src="Images/Fresh-veg.jpg" alt=""></div>
+            <p>Your Source for Fresh, Organic Fruits and Vegetables</p>            
+        </div>
+    </main>
+
+
+    <script>
+
+
+        
+
+        function getUser(){
+
+
+            event.preventDefault();
+            const user={
+                Name:document.getElementById('Name').value,
+                Mobile_No:document.getElementById('Mobile').value,
+                Email:document.getElementById('Email').value,
+                House_No:document.getElementById('HouseNo').value,
+                Area:document.getElementById('Area').value,
+                City:document.getElementById('City').value,
+                State:document.getElementById('State').value,
+                Pin_Code:document.getElementById('Pin-Code').value
+            };
+
+            
+            
+
+            document.getElementById('Form').reset();
+
+            localStorage.setItem('USER',JSON.stringify(user));
+            window.open("./Main.html",'_self');
+        }       
+
+
+        function labelTransition(prop){
+            const labelTransition=document.querySelector(`.Input-Label${prop}`);
+            labelTransition.classList.add('Label-Transition');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fresh-Veg</title>
+    <link rel="icon" href="Images/Fresh-veg.jpg">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="Styles/General.css">
+    <link rel="stylesheet" href="Styles/checkOut.css">
+    <link rel="stylesheet" href="Styles/Success.css">
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <main class="Place-Order">
+        <div>
+            <div class="Select-Slot">
+                <a href="Cart.html">
+                    <img onclick="placeOrder()" src="Images/Go-back.svg" alt="">
+                </a>
+                
+                <div class="Day-Selector">
+                    <div for="radioToday">
+                        <input type="radio" id="radioToday" name="Delivery" checked>
+                        <label for="radioToday" id="Today">Today</label>
+                    </div>
+                    <div for="radioTomorrow">
+                        <input type="radio" id="radioTomorrow" name="Delivery">
+                        <label for="radioTomorrow" id="radioTomorrow">Tomorrow</label>
+                    </div>
+                    
+                    
+                </div>
+                <h3>SELECT TIME SLOT</h3>
+                <div class="Time-Picker">
+                    <div class="Select-time">
+                        <div for="slot1">
+                            <input type="radio" id="slot1" name="slot">
+                            <label for="slot1">7 AM to 10 AM</label>
+                        </div>
+                        <div for="slot2">
+                            <input type="radio" id="slot2" name="slot" checked>
+                            <label for="slot2">10 AM to 2 PM</label>
+                        </div>
+                        <div for="slot3">
+                            <input type="radio" id="slot3" name="slot" cl>
+                            <label for="slot3">2 PM to 6 PM</label>
+                        </div>
+                        <div for="slot4">
+                            <input type="radio" id="slot4" name="slot">
+                            <label for="slot4">6 PM to 10 PM</label>
+                        </div>
+                    </div>
+
+                    <button onclick="startProgress()">
+                        <div class="Progress"></div>
+                        <span>Place Order</span>
+                    </button>
+                    <button onclick="cacelProgress()" id="btn-Cancel" class="btn-Cancel">Cancel</button>
+                </div>
+                <div class="Success">
+                    <div>
+                        <dotlottie-player src="Images/Lottie/Popper.lottie" 
+                            background="transparent" 
+                            speed="1" 
+                            style="width: 100%; height: 100%" 
+                            direction="1" 
+                            playMode="normal"
+                            loop 
+                            autoplay>
+                        </dotlottie-player>
+                        <div>
+                            <dotlottie-player src="Images/Lottie/Sucess.lottie" 
+                                background="transparent" 
+                                speed="1" 
+                                style="width: 100%; height: 100%" 
+                                direction="1" 
+                                playMode="normal" 
+                                autoplay>
+                            </dotlottie-player>
+                            <a href="Main.html">
+                                <button class="Go-back">Go Back</button>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </main>
+
+    
+
+    <script>
+         let PopUp;
+         let Cancel;
+         let Order=false;
+
+         const progress= document.querySelector('.Progress');
+         function startProgress(){
+            if(Order===false){
+                Order=true;
+                document.querySelector('.btn-Cancel').style.display='block';
+                setTimeout(()=>{                
+                    progress.style.transition='4s'
+                    progress.style.width='100%';                
+                },500);
+
+                PopUp= setTimeout(successFul,4500)
+                Cancel= setTimeout(()=>{
+                    document.querySelector('.btn-Cancel').style.display='none';
+                },4500);
+
+                document.querySelector('span').style.display='none';
+                document.querySelector('button').classList.add('btn-Transition');
+                }           
+         }
+
+         function cacelProgress(){
+            Order=false;
+            clearInterval(PopUp);
+            clearInterval(Cancel);
+            progress.style.transition='none'
+            progress.style.width='0%';
+            document.querySelector('.btn-Cancel').style.display='none';
+            document.querySelector('span').style.display='block';
+            document.querySelector('button').classList.remove('btn-Transition');
+         }
+
+         function successFul(){
+            const popup=document.querySelector('.Success');
+            popup.classList.add('PopUp');
+         }
+
+    </script>
+</body>
+</html>

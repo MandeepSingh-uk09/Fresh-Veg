@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fresh-Veg</title>
+    <link rel="icon" href="Images/Fresh-veg.jpg">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='Styles/nav.css'>
+    <link rel="stylesheet" href="Styles/General.css">
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/Summary.css">
+</head>
+
+<body>
+    <header>
+        <div class="Fresh-Veg">
+            <div><img class="Logo" src="Images/Fresh-veg.jpg" alt="logo"></div>
+            <div>
+                <h1>Fresh-Veg</h1>
+            </div>
+        </div>
+        <div class="Search">
+            <div>
+                <input type="text" placeholder="Search Items">
+                <button><img src="Images/Search.svg" alt=""></button>
+            </div>
+
+        </div>
+        <div class="Navigation">
+            <nav>
+                <div>
+                    <h3>Location</h3>
+                    <div id="Location">
+                        <h6>Delivery To :-</h6>
+                        <h4>133001- Rail Vihar</h4>
+                    </div>
+
+                </div>
+                <h1 id="User">User</h1>
+            </nav>
+            <img onclick="goToCart()" src="Images/CART.svg" alt="">
+            <img class="Nav-Icon" src="Images/NAV.svg" alt="">
+        </div>
+    </header>
+    <main>
+        <div class="Content">
+            <div class="Card">
+                <img src="Images/vegetable/1.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Potato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/2.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Tomato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/3.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Onion</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/4.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Brinjal</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/5.jpg" alt="">
+                <div class="Item-name">
+                    <h3>G/Chili</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/1.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Potato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/2.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Tomato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/3.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Onion</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/4.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Brinjal</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/5.jpg" alt="">
+                <div class="Item-name">
+                    <h3>G/Chili</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/1.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Potato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/2.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Tomato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/3.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Onion</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/4.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Brinjal</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/5.jpg" alt="">
+                <div class="Item-name">
+                    <h3>G/Chili</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/1.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Potato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/2.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Tomato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/3.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Onion</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/4.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Brinjal</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/5.jpg" alt="">
+                <div class="Item-name">
+                    <h3>G/Chili</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/1.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Potato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/2.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Tomato</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/3.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Onion</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/4.jpg" alt="">
+                <div class="Item-name">
+                    <h3>Brinjal</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+            <div class="Card">
+                <img src="Images/vegetable/5.jpg" alt="">
+                <div class="Item-name">
+                    <h3>G/Chili</h3>
+                    <h4>₹150/kg</h4>
+                </div>
+                <div class="Item-Qty">
+                    <button>250g</button>
+                    <button>500g</button>
+                    <button>1kg</button>
+                </div>
+                <button>Add</button>
+            </div>
+        </div>
+        <div class="Selected-Items">
+            <h2>Summary</h2>
+            <div class="Items-In-Cart">
+                <div class="Cart">
+                    <div class="Cart-Item">
+                        <h4>1. Onion</h4>
+                    </div>
+                    <div class="Cart-Item-Qty"> 500g</div>
+                </div>
+                <div class="Cart">
+                    <div class="Cart-Item">
+                        <h4>1. Onion</h4>
+                    </div>
+                    <div class="Cart-Item-Qty"> 500g</div>
+                </div>
+                <div class="Cart">
+                    <div class="Cart-Item">
+                        <h4>1. Onion</h4>
+                    </div>
+                    <div class="Cart-Item-Qty"> 500g</div>
+                </div>
+                <div class="Cart">
+                    <div class="Cart-Item">
+                        <h4>1. Onion</h4>
+                    </div>
+                    <div class="Cart-Item-Qty"> 500g</div>
+                </div>
+            </div>
+            <div class="Total">
+                <h4>Total Weight</h4>
+                <h4 class="totalWtDOM"></h4>
+            </div>
+            <button onclick="goToCart()">Go to Cart</button>
+
+        </div>
+    </main>
+
+
+    <script>
+        
+
+        const User=JSON.parse(localStorage.getItem("USER"));
+        
+        document.querySelector('.Navigation>nav>div>h3').style.display='none';
+        const userLoction=document.getElementById("Location");
+        userLoction.style.visibility='visible';
+        userLoction.innerHTML=`<h6>Delivery To :-</h6><h4>${User.Pin_Code}- ${User.Area}</h4>`;
+
+        const userName=document.getElementById("User");
+        userName.innerHTML=`${User.Name}`;
+
+        let pinCode = 416121;
+        let price;
+        let itemDisplay;
+
+        /* Summary DOM Changing */
+
+        let summary = JSON.parse(localStorage.getItem("summary")) || [];
+        let totalWT = 0;
+
+        function itemWeight(WT) {
+            totalWT += WT;
+        }
+
+        function summaryDOM() {
+            let summaryDOM = '';
+            let totalWeight = 0;
+            summary.forEach((element, index) => {
+                summaryDOM +=
+                    `<div class="Cart">                             
+                        <div class="Cart-Item"><h4>${index + 1}. ${element.Name}</h4></div>
+                        <div class="Cart-Item-Qty"> ${element.Weight}g</div>
+                    </div>`;
+                totalWeight += element.Weight;
+            })
+            document.querySelector('.Items-In-Cart').innerHTML = summaryDOM;
+            totalWeight = totalWeight / 1000;
+            document.querySelector('.totalWtDOM').innerHTML = `${totalWeight} Kg`;
+            localStorage.setItem("totalWeight", totalWeight);
+        }
+
+        function addItem(ID) {
+            if (totalWT === 0) totalWT = 250;
+            const summaryObject = {
+                vegID: null,
+                Name: '',
+                Price: null,
+                Weight: null
+            }
+            summaryObject.vegID = itemDisplay[ID].vegID;
+            summaryObject.Name = itemDisplay[ID].vegName;
+            summaryObject.Price = price[ID].Price;
+            summaryObject.Weight = totalWT;
+
+            totalWT = 0;
+            summary.push(summaryObject);
+            summaryDOM();
+        }
+
+        function displayItem() {
+            let displayItemDom = '';
+
+            itemDisplay.forEach((element, index) => {
+                displayItemDom +=
+                    `<div class="Card">
+                        <img src="Images/vegetable/${element.vegID}.jpg" alt="${element.vegName}">
+                        <div class="Item-name">
+                            <h3>${element.vegName}</h3>
+                            <h4>₹${price[index].Price}/kg</h4>                    
+                        </div>                
+                        <div class="Item-Qty">
+                            <button onclick="itemWeight(250)">250g</button>
+                            <button onclick="itemWeight(500)">500g</button>
+                            <button onclick="itemWeight(1000)">1kg</button>
+                        </div>
+                        <button onclick="addItem(${(element.vegID) - 1})">Add</button>
+                    </div>`
+            });
+
+            document.querySelector('.Content').innerHTML = displayItemDom;
+
+            summaryDOM()
+        }
+
+
+        async function getData() {
+            const vegDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/vegDetail.json");
+            const pinCodeDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/pincodes.json");
+            const priceDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/Price.json");
+            console.log(vegDetail.status, vegDetail.ok, pinCodeDetail.status, pinCodeDetail.ok, priceDetail.status, priceDetail.ok);
+
+            const items = await vegDetail.json();
+            const pinCodeItem = await pinCodeDetail.json();
+            const ID = pinCodeItem[pinCode];
+            const priceItem = await priceDetail.json();
+
+            price = priceItem[ID].data;
+            itemDisplay = items;
+
+            console.log(price, itemDisplay);
+
+
+            displayItem();
+        }
+
+
+
+
+        getData();
+
+
+
+
+
+
+        /*Passing summary data on click*/
+
+        function goToCart() {
+
+            localStorage.setItem('summary', JSON.stringify(summary));
+            window.open(`./Cart.html`,`_self`);
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
