@@ -198,7 +198,7 @@ nav>h3{
 .User-details>div>h6{
     margin: 0;
     text-align: right;
-    font-size: medium;
+    font-size: small;
 }
 
 .User-address{
@@ -279,6 +279,13 @@ nav>h3{
     .Address-Card{
         width: calc(49% - 2em);
         height: max-content;
+        
+    }
+    .Address{
+        font-size: small;
+    }
+    .User-address{
+        font-size: small;
     }
     .Delivery-By{
         width: calc(49% - 1em);
@@ -295,9 +302,18 @@ nav>h3{
     }
 }
 
-@media (max-width:750px){
+@media (max-width:900px){
     .Summary{
         width: 90%;
+    }
+    .User-details{
+        flex-direction: column;
+    }
+    .User-details>div{
+        margin-top: 1em;
+    }
+    .User-details>div>h6{
+        text-align: left;
     }
 }
 
@@ -310,6 +326,15 @@ nav>h3{
         width: calc(100% - 2em);
         height: max-content;
         margin-bottom: 2em;
+    }
+    .User-details{
+        flex-direction: row
+    }
+    .User-details>div{
+        margin-top: 0em;
+    }
+    .User-details>div>h6{
+        text-align: right;
     }
     .Delivery-By{
         width: calc(100%);
@@ -337,5 +362,16 @@ nav>h3{
     .Card-Pic>img{
         width: 2em;
         height: 2em;
+    }
+}
+@media (max-width:400px){
+    .User-details{
+        flex-direction: column;
+    }
+    .User-details>div{
+        margin-top: 1em;
+    }
+    .User-details>div>h6{
+        text-align: left;
     }
 }
