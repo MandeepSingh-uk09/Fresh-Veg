@@ -1,9 +1,8 @@
 main{
-    margin: 15vh 5vw;
+    margin: 8vh 5vw;
     width: 90vw;
     height: max-content;
     display: flex;
-    justify-content: space-around;
 }
 .Content,
 .Selected-Items{
@@ -21,9 +20,11 @@ main{
     column-gap: 10px;
     width: 75%;
     padding: 10px ;
+    margin-right: 2%;
 }
 .Selected-Items{
     width: 20%;
+    min-width: 200px;
 }
 
 @media (max-width:700px){
@@ -112,4 +113,95 @@ main{
     background-color: #28921e;
     border: 1px solid black;
     border-radius: 10em;
+}
+@media (max-width:500px) and (min-width:480px) {
+    main{
+        width: 100vw;
+    }
+    .Content{
+        width: 80%;
+        margin: auto;
+        column-gap: 1px;
+    }
+    .Card{
+        width: 120px;
+        height: 195px;
+    }
+    .Card>img{
+        max-height: 120px;
+    }
+    .Item-name>h3,h4{
+        margin: 0%;
+        display: inline;
+    }
+    .Item-name>h3{
+        font-size: 0.95em;
+    }
+    .Item-name>h4{
+        font-size: 0.8em;
+    }
+    
+    .Item-name>h4::first-letter{
+        color: black;
+    }
+
+    .Item-Qty>button{
+        font-size: 0.7em;
+        padding: 2px 6px;
+        margin-top: 0.25em;
+        font-weight: bold;
+    }
+    .Card>button{
+        width: 95%;
+        margin: 5px 2.5% 0px;
+        padding: 3px;
+        font-size: 0.8em;
+    
+    }
+}
+@media (max-width:400px) {
+    main{
+        width: 95vw;
+        margin: inherit opx;
+    }
+    .Content{
+        width: 98%;
+        margin: auto;
+        column-gap: 1px;
+    }
+    .Card{
+        width: 120px;
+        height: 195px;
+    }
+    .Card>img{
+        max-height: 120px;
+    }
+    .Item-name>h3,h4{
+        margin: 0%;
+        display: inline;
+    }
+    .Item-name>h3{
+        font-size: 0.95em;
+    }
+    .Item-name>h4{
+        font-size: 0.8em;
+    }
+    
+    .Item-name>h4::first-letter{
+        color: black;
+    }
+
+    .Item-Qty>button{
+        font-size: 0.7em;
+        padding: 2px 6px;
+        margin-top: 0.25em;
+        font-weight: bold;
+    }
+    .Card>button{
+        width: 95%;
+        margin: 5px 2.5% 0px;
+        padding: 3px;
+        font-size: 0.8em;
+    
+    }
 }
