@@ -45,6 +45,11 @@
             </div>
 
     </div>
+
+    <!-- Summary Button Toggle -->
+    <button class="btn-Summary" onclick="summaryBtn()"><img src="Images/List.svg" alt=""></button>
+    
+    
     <main>
         <div class="Content">
             <div class="Card">
@@ -535,6 +540,39 @@
             localStorage.setItem('summary', JSON.stringify(summary));
             window.open(`./Cart.html`,`_self`);
         }
+
+        /* btn and Summary functioning for different screen size */
+
+        let btnToggle=false;
+        let maxWidthToggle=false;
+
+        function summaryBtn(){
+            if(btnToggle===false){
+                    btnToggle=true;
+                    document.querySelector('.Selected-Items').style.display='block';
+                }
+                else{
+                    btnToggle=false;
+                    document.querySelector('.Selected-Items').style.display='none';
+                }
+        }
+
+        function windowWidth(){
+            console.log("called");
+            if(window.innerWidth>700){
+                btnToggle=false;
+                maxWidthToggle=false;
+                document.querySelector('.Selected-Items').style.display='block';
+            }else if(maxWidthToggle===false){
+                console.log("less then 700")
+                maxWidthToggle=true;
+                document.querySelector('.Selected-Items').style.display='none';
+            }
+            console.log(maxWidthToggle);
+            
+        }
+
+        window.addEventListener('resize',windowWidth);
 
 
     </script>
