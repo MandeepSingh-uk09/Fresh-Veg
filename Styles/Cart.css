@@ -62,7 +62,7 @@ nav>h3{
 
 /* Location --------------------------------------*/
 
-.Summary{
+.Summary{    
     width:75%;    
     background-color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -73,10 +73,12 @@ nav>h3{
 
     display: flex;
     justify-content: space-between;
+    min-height: 500px;
 }
 
 .Cart-items{
     width: 50%;
+    position: relative;
 }
 
 .Cart-items>h2{
@@ -227,7 +229,7 @@ nav>h3{
     font-size: large;
     border-bottom: 2px solid ;
 }
-.Delivery-By>div{
+.js-totalAmount{
     background-color: white;
     border-radius:1em;
     padding: 0.5em;
@@ -261,12 +263,22 @@ nav>h3{
     font-size: large;
 }
 
+.Empty-cart{
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    top: 15%;
+    position: absolute;
+    display: none;
+}
+
 @media (max-width:1000px) {
     .Summary{
         flex-direction: column;
     }
     .Cart-items{
         width: 100%;
+        
     }
     .Bill{
         width: calc(100% - 2em);
@@ -300,6 +312,12 @@ nav>h3{
         width: 50%;
         height: rem;
     }
+    .Empty-cart{
+        left: 20%;
+        width: 60%;
+        height: 200px;
+        top: 80%;
+    }
 }
 
 @media (max-width:900px){
@@ -314,6 +332,10 @@ nav>h3{
     }
     .User-details>div>h6{
         text-align: left;
+    }
+    .Empty-cart{
+        height: 180px;
+        top: 60%;
     }
 }
 
@@ -349,6 +371,10 @@ nav>h3{
         width: 50%;
         height: rem;
     }
+    .Empty-cart{
+        height: 140px;
+        top: 100%;
+    }
 }
 
 @media (max-width:450px) {
@@ -373,5 +399,9 @@ nav>h3{
     }
     .User-details>div>h6{
         text-align: left;
+    }
+    .Empty-cart{
+        height: 100px;
+        top: 100%;
     }
 }

@@ -35,15 +35,29 @@ div.Cart:last-child{
     padding-bottom: 5px;
     border-bottom: 1px solid black;
 }
-
-.Selected-Items>button{
+.buttons{
+    display: flex;
+}
+.clearCart{
+    cursor: pointer;
+    border: none;
+    width: 50%;
+    height: 3em;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(112, 35, 184);
+    border-radius: 0px 0px 0px 5px;
+}
+.goToCart{
 
     cursor: pointer;
     border: none;
-    width: 100%;
+    width: 50%;
     height: 3em;
+    padding: 0;
     color: white;
     font-weight: bold;
     background-color: #28921e;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 0px;
 }

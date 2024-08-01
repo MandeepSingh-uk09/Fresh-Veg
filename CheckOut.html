@@ -17,7 +17,7 @@
         <div>
             <div class="Select-Slot">
                 <a href="Cart.html">
-                    <img onclick="placeOrder()" src="Images/Go-back.svg" alt="">
+                    <img class="goBack" onclick="placeOrder()" src="Images/Go-back.svg" alt="">
                 </a>
                 
                 <div class="Day-Selector">
@@ -110,6 +110,7 @@
                 PopUp= setTimeout(successFul,4500)
                 Cancel= setTimeout(()=>{
                     document.querySelector('.btn-Cancel').style.display='none';
+                    document.querySelector('.goBack').style.display="none";
                 },4500);
 
                 document.querySelector('span').style.display='none';
@@ -129,8 +130,13 @@
          }
 
          function successFul(){
+            document.querySelector('.btn-Cancel').style.display="none";
+            document.querySelector('.goBack').style.display="none";
             const popup=document.querySelector('.Success');
             popup.classList.add('PopUp');
+
+            localStorage.removeItem("summary");
+            localStorage.removeItem("totalWeight");
          }
 
     </script>

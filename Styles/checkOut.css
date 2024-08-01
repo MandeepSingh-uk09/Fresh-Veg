@@ -28,7 +28,7 @@
         padding: 1em;
 }
 
-.Select-Slot>a>img{
+.goBack{
     cursor: pointer;
     display: block;
     width: 1.2rem;
@@ -160,7 +160,7 @@ button{
     width: 80%;
     height: 2rem;    
 }
-button>div{
+.Progress{
     position: absolute;
     
     background-color: #49AD3A;

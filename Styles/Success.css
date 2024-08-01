@@ -7,7 +7,7 @@
     border-radius: 2em;
 
     /* Animation */
-    top: -50%;
+    top: +25%;
     transform: translate(0,-45%) scale(0.1) ;
     
     visibility: hidden;

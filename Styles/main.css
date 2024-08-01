@@ -143,6 +143,7 @@ main{
     }
     .btn-Summary{
         display: block;
+        z-index: 4;
     }
 }
 
