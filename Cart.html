@@ -109,6 +109,11 @@
 
 
     <script>
+
+
+
+
+
         function placeOrder(){
             window.open('checkOut.html','_self');           
         }
@@ -116,7 +121,8 @@
         /* receieve ing data here */
 
         const totalWeight=localStorage.getItem("totalWeight");        
-        const summaryItem=JSON.parse(localStorage.getItem('summary')) || [];
+        let summaryItem=JSON.parse(localStorage.getItem('summary')) || [];
+        /* let tempSummary=JSON.parse(localStorage.getItem('tempSummary')); */
         const User=JSON.parse(localStorage.getItem("USER"));
         let totalPrice=0;
 
@@ -172,7 +178,7 @@
             }
             else{
                 console.log("called 1.2")
-                summaryItem.forEach(element => {
+                summaryItem.forEach((element,index) => {
                     const price=Math.round((element.Weight/1000)*(Number(element.Price)));
                     totalPrice+=price;
                     shoppingCartDOM+=
@@ -189,7 +195,7 @@
                         </div>
                         <div class="Manage-Card">
                             <img src="Images/Edit.svg" alt="">
-                            <img src="Images/Delete.svg" alt="">
+                            <img src="Images/Delete.svg" onclick="deleteItem(${index})" alt="">
                         </div>
                     </div>`
                 });
@@ -198,6 +204,14 @@
             }
 
         }        
+
+        function deleteItem(index){
+            totalPrice=0;
+            summaryItem.splice(index,1);
+            console.log(summaryItem);
+            localStorage.setItem("summary",JSON.stringify(summaryItem));
+            shoppingCart();
+        }
 
         shoppingCart();
 

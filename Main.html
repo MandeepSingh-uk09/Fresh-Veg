@@ -114,11 +114,21 @@
                 
         let summary = JSON.parse(localStorage.getItem("summary")) || [];
         let tempSummary={};
+
+        function tempSummaryData(){
+            summary.forEach(element => {
+                tempSummary[element.vegID]=element;
+            });
+        }
+        
         let totalWT = 0;
         let CartVegID;
 
 
         function itemWeight(WT,ID) {
+           /*  if(tempSummary[ID]){
+                totalWT =WT;
+            } */
             if (CartVegID===ID) {
                 console.log(CartVegID);
                 totalWT+=WT;
@@ -243,6 +253,7 @@
         function goToCart() {
 
             localStorage.setItem('summary', JSON.stringify(summary));
+            /* localStorage.setItem('tempSummary',JSON.stringify(tempSummary)); */
             window.open(`./Cart.html`,`_self`);
         }
 
@@ -280,6 +291,8 @@
         /* ----------------------------------------------------------------------------------------------------- */
 
         window.addEventListener('resize',windowWidth);
+
+        tempSummaryData();
         gettingUser();
         getData();
 
