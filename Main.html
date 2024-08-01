@@ -108,10 +108,16 @@
             userName.innerHTML=`${User.Name}`;
         }
         
+        /* ----------------------------------------------------------------------------------------------------- */
       
         /* Summary DOM Changing */
-
+                
+        let summary = JSON.parse(localStorage.getItem("summary")) || [];
+        let tempSummary={};
+        let totalWT = 0;
         let CartVegID;
+
+
         function itemWeight(WT,ID) {
             if (CartVegID===ID) {
                 console.log(CartVegID);
@@ -142,10 +148,6 @@
             localStorage.setItem("totalWeight", totalWeight);
         }
         
-        let summary = JSON.parse(localStorage.getItem("summary")) || [];
-        let totalWT = 0;
-
-        let tempSummary={};
 
         function addItem(ID) {
             const tempID=''+(ID+1);
@@ -176,6 +178,10 @@
             totalWT = 0;
         }
 
+        /* ----------------------------------------------------------------------------------------------------- */
+
+        /* Loading items on the screen of Main  */
+
         function displayItem() {
             let displayItemDom = '';
 
@@ -197,7 +203,6 @@
             });
 
             document.querySelector('.Content').innerHTML = displayItemDom;
-
             summaryDOM()
         }
 
@@ -225,6 +230,8 @@
             }
         }
 
+        /* ----------------------------------------------------------------------------------------------------- */
+
         function clearCart(){
             tempSummary={};
             summary=[];
@@ -238,6 +245,8 @@
             localStorage.setItem('summary', JSON.stringify(summary));
             window.open(`./Cart.html`,`_self`);
         }
+
+        /* ----------------------------------------------------------------------------------------------------- */
 
         /* btn and Summary functioning for different screen size */
 
@@ -267,6 +276,8 @@
             console.log(maxWidthToggle);
             
         }
+
+        /* ----------------------------------------------------------------------------------------------------- */
 
         window.addEventListener('resize',windowWidth);
         gettingUser();
