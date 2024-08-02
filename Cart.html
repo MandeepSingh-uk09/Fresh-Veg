@@ -144,10 +144,22 @@
 
         /* receieve ing data here */
 
-        const totalWeight=localStorage.getItem("totalWeight");        
-        let summaryItem=JSON.parse(localStorage.getItem('summary')) || [];
+        /* const totalWeight=localStorage.getItem("totalWeight"); */
         /* let tempSummary=JSON.parse(localStorage.getItem('tempSummary')); */
+
+        let summaryItem=JSON.parse(localStorage.getItem('summary')) || [];        
+        
+        let totalWeight=0;
+        function totalWeightItems(){
+            summaryItem.forEach(element => {
+                totalWeight+=Number(element.Weight);
+            });
+            totalWeight=totalWeight/1000;
+        }
+
         const User=JSON.parse(localStorage.getItem("USER"));
+
+
         let totalPrice=0;
 
         /*  Function  */
@@ -227,19 +239,19 @@
                             <div class="editWeight">
                                 <div class="customInput">
                                     <p>Enter Weight in Grams</p>
-                                    <input class="customInputValue" type="number">
+                                    <input id="customInput-${index}" type="number" placeholder="Multiple of 250g">
                                 </div>
                                 <div class="customButton">
-                                    <button>250g</button>
-                                    <button>500g</button>
-                                    <button>1Kg</button>
-                                    <button>1.5Kg</button>
-                                    <button>2Kg</button>
-                                    <button>2.5Kg</button>
+                                    <button onclick="editButton(250)">250g</button>
+                                    <button onclick="editButton(500)">500g</button>
+                                    <button onclick="editButton(1000)">1Kg</button>
+                                    <button onclick="editButton(1500)">1.5Kg</button>
+                                    <button onclick="editButton(2000)">2Kg</button>
+                                    <button onclick="editButton(2500)">2.5Kg</button>
                                 </div>
                                 <div class="editAction">
-                                    <button class="cancel">&#10006;</button>
-                                    <button class="done">&#10004;</button>
+                                    <button class="cancel" onclick="editCancelBt(${index})">&#10006;</button>
+                                    <button class="done" onclick="editDone(${index})">&#10004;</button>
                                 </div>
                             </div>
                         </div>
@@ -254,13 +266,17 @@
         let editWeightToggle=false;
 
         function editWeight(index){
-            if(editWeightToggle===false){
+
+            editWeightToggle=true;
+            document.getElementById(index).style.display="block";
+
+            /* if(editWeightToggle===false){
                 editWeightToggle=true;
                 document.getElementById(index).style.display="block";
             }else{
                 editWeightToggle=false;
                 document.getElementById(index).style.display="none";
-            }
+            } */
             
         }
 
@@ -272,6 +288,46 @@
             shoppingCart();
         }
 
+        let customWeight=null;
+
+        function editButton(value){
+            console.log("editButton Called");
+            customWeight=value;
+        }
+
+        function editCancelBt(index){
+            customWeight=null;
+            editWeightToggle=false;
+            document.getElementById(index).style.display="none";
+        }
+
+        function editDone(index){
+            console.log(index);
+            let customValue= customWeight || document.getElementById(`customInput-${index}`).value;
+            if(customValue){
+                if(customValue%250===0){
+                    customValue=customValue;
+                }
+                else if(customValue<250){
+                    customValue=250
+                }else {
+                    customValue= 250*(Math.round(customValue/250));
+                }
+                summaryItem[index].Weight=customValue;
+                customWeight=null;
+                editWeightToggle=false;
+                localStorage.setItem("summary",JSON.stringify(summaryItem));
+                totalPrice=0;
+                totalWeight=0;
+                totalWeightItems();
+                shoppingCart();
+            }else{
+                editWeightToggle=false;
+                document.getElementById(index).style.display="none";
+            }
+        }
+
+        totalWeightItems();
         shoppingCart();
 
     </script>

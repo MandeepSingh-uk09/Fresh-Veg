@@ -154,7 +154,8 @@ nav>h3{
 .editItem{
     display: none;
 
-    height: 3rem;
+    
+    height: max-content;
     margin-top: 0.2em;
     padding-top: inherit;
 
@@ -165,7 +166,6 @@ nav>h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: inherit;
 }
 .customInput{
     width: 35%;
@@ -175,53 +175,55 @@ nav>h3{
     margin: 0;
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
+    font-weight: bold;
+    margin-bottom: 0.5em;
 }
 .customInput>input{
-    width: calc(100% - 4px);
-    padding: 0;
-    margin: 0;
+    width: calc(100% - 14px);
+    padding: 5px;    
+    margin-top: 5px;
     height: 1rem;
     outline: none;
+    font-size: 0.8rem;
 }
-
 .customButton{
     display: flex;
     flex-wrap: wrap;
     width: 40%;
     column-gap: 5%;
-    row-gap: 5px;
+    row-gap: 8px;
 }
 .customButton>button{
     width: 30%;
     height: min-content;
-    padding: 3px;
+    padding: 5px;
     background-color: #49AD3A;
     color: white;
-
+    font-weight: bold;
     border: 1px solid black;
 }
 
 .editAction{
     display: flex;
     flex-direction: column;
-    width: 10%;
+    width: 15%;
     height: inherit;
 }
 
-.editAction>button{
-    height: calc(inherit / 0.5);
-    width: 100%;
-    border-radius: 0;
-}
-
 .cancel{
+    width: 100%;
+    height: 2rem;
+    border-radius: 0;
     background-color: rgb(205, 24, 24);
     color: white;
     border-bottom: 1px solid white;
+
 }
 
 .done{
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0;
     background-color: #49AD3A;
     color: white;
 }
@@ -356,9 +358,11 @@ nav>h3{
         
     }
     .Bill{
+        margin-top: 1em;
         width: calc(100% - 2em);
     }
     .Bill>div{
+        padding-top: 1em;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -453,16 +457,74 @@ nav>h3{
 }
 
 @media (max-width:450px) {
-    .Item-Card{
-        font-size: 0.1rem;
-    }
     .Manage-Card>img{
-        width: 1.2rem;
-        padding-right: 3em;
+        width: 1.7rem;
+        
+    }
+    .Manage-Card>img:first-child{
+        margin-right: 0.8em;
+    }
+    .Card-Pic>h3{
+        font-size: 0.9rem;
+    }
+    .Quantity>h3,h4{
+        font-size: 0.9rem;
     }
     .Card-Pic>img{
-        width: 2em;
-        height: 2em;
+        width: 3.5em;
+        height: 3.5em;
+    }
+
+    .editItem{
+        height: max-content;
+    }
+
+    .editWeight{
+        flex-direction: column;
+    }
+    .customInput{
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+    .customInput>p{
+        font-size: 1rem;
+    }
+    .customInput>input{
+        height: 2rem;
+        margin-top: 10px;
+        width: calc(100% - 14px);
+        font-size: 1rem;
+        padding: 5px;
+    }
+    .customButton{
+        width: 100%;                
+        column-gap: 5%;
+        row-gap: 20px;
+
+        margin-bottom: 1.5em;
+    }
+    .customButton>button{
+        width: 30%;
+        padding: 10px;
+        font-size: 1rem;
+
+        font-weight: bold;
+    }
+
+    .editAction{
+        flex-direction: row;
+        width: 100%;
+    }
+    .cancel{
+        height: 2.5rem;
+        border: 0;
+        font-size: larger;
+    }
+    .done{
+        font-size: larger;
+    }
+    .Delivery-By>button{
+        width: 90%;
     }
 }
 @media (max-width:400px){
