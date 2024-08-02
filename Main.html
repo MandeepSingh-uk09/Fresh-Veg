@@ -150,12 +150,14 @@
                         <div class="Cart-Item"><h4>${index + 1}. ${element.Name}</h4></div>
                         <div class="Cart-Item-Qty"> ${element.Weight}g</div>
                     </div>`;
-                totalWeight += element.Weight;
+                totalWeight += Number(element.Weight);
             })
             document.querySelector('.Items-In-Cart').innerHTML = summaryDOM;
             totalWeight = totalWeight / 1000;
             document.querySelector('.totalWtDOM').innerHTML = `${totalWeight} Kg`;
-            localStorage.setItem("totalWeight", totalWeight);
+
+            /* Not needed anymore , calculating seperately in cart.html */
+            /* localStorage.setItem("totalWeight", totalWeight); */
         }
         
 
