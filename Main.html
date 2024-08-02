@@ -94,7 +94,7 @@
         let itemDisplay;
 
         function gettingUser(){
-            const User=JSON.parse(localStorage.getItem("USER")) /* || {Name:"Hello",Area:"Enter Pin-Code",Pin_Code:133001 } */;
+            const User=JSON.parse(localStorage.getItem("USER")) ;
             if(!User){
                 window.open("index.html","_self");
             }
@@ -179,13 +179,13 @@
                 
                 summary.push(summaryObject);
 
-                summaryDOM();
+                
             }
             else{
                 tempSummary[tempID].Weight += totalWT;
-                summaryDOM();
             }
             totalWT = 0;
+            summaryDOM();
         }
 
         /* ----------------------------------------------------------------------------------------------------- */
@@ -233,7 +233,7 @@
                 price = priceItem[ID].data;
                 itemDisplay = items;
 
-            displayItem();
+                displayItem();
             } 
             catch (error) {
                 location.reload();

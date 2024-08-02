@@ -46,21 +46,45 @@
             <h6>You have no items in your cart</h6>
                 
                 <div class="Item-Card">
-                    <!-- <div class="Card-Pic"> 
-                        <img src="Images/vegetable/1.jpg" alt="">
-                        <h3></h3>
-                        <div class="Quantity">
-                            <img src="Images/Multiply.svg" alt="">
+                    <!-- <div class="cardPreview">
+                        <div class="Card-Pic"> 
+                            <img src="Images/vegetable/1.jpg" alt="">
                             <h3></h3>
-                            <img src="Images/Equal.svg" alt="">
-                            <h4 class="Item-Cost"></h4>
-                        </div>                        
+                            <div class="Quantity">
+                                <img src="Images/Multiply.svg" alt="">
+                                <h3></h3>
+                                <img src="Images/Equal.svg" alt="">
+                                <h4 class="Item-Cost"></h4>
+                            </div>                        
+                        </div>
+                        <div class="Manage-Card">
+                            <img src="Images/Edit.svg" onclick="editWeight(index)" alt="">
+                            <img src="Images/Delete.svg" alt="">
+                        </div>
                     </div>
-                    <div class="Manage-Card">
-                        <img src="Images/Edit.svg" alt="">
-                        <img src="Images/Delete.svg" alt="">
-                    </div> -->
-                </div>
+                    <div id="index" class="editItem">
+                        <div class="editWeight">
+                            <div class="customInput">
+                                <p>Enter Weight in Grams</p>
+                                <input class="customInputValue" type="number">
+                            </div>
+                            <div class="customButton">
+                                <button>250g</button>
+                                <button>500g</button>
+                                <button>1Kg</button>
+                                <button>1.5Kg</button>
+                                <button>2Kg</button>
+                                <button>2.5Kg</button>
+                            </div>
+                            <div class="editAction">
+                                <button class="cancel">&#10006;</button>
+                                <button class="done">&#10004;</button>
+                            </div>
+                        </div>
+                    </div> -->                  
+                </div> 
+                
+                
             </div>
         </div>
         <div class="Bill">
@@ -183,19 +207,41 @@
                     totalPrice+=price;
                     shoppingCartDOM+=
                     `<div class="Item-Card">
-                        <div class="Card-Pic"> 
-                            <img src="Images/vegetable/${element.vegID}.jpg" alt="${element.Name}">
-                            <h3>${element.Name}</h3>
-                            <div class="Quantity">
-                                <img src="Images/Multiply.svg" alt="">
-                                <h3>${element.Weight}g</h3>
-                                <img src="Images/Equal.svg" alt="">
-                                <h4 class="Item-Cost">₹${price}</h4>
-                            </div>                        
+                        <div class="cardPreview">
+                            <div class="Card-Pic"> 
+                                <img src="Images/vegetable/${element.vegID}.jpg" alt="${element.Name}">
+                                <h3>${element.Name}</h3>
+                                <div class="Quantity">
+                                    <img src="Images/Multiply.svg" alt="">
+                                    <h3>${element.Weight}g</h3>
+                                    <img src="Images/Equal.svg" alt="">
+                                    <h4 class="Item-Cost">₹${price}</h4>
+                                </div>                        
+                            </div>
+                            <div class="Manage-Card">
+                                <img src="Images/Edit.svg" onclick="editWeight(${index})" alt="">
+                                <img src="Images/Delete.svg" onclick="deleteItem(${index})" alt="">
+                            </div>
                         </div>
-                        <div class="Manage-Card">
-                            <img src="Images/Edit.svg" alt="">
-                            <img src="Images/Delete.svg" onclick="deleteItem(${index})" alt="">
+                        <div id="${index}" class="editItem">
+                            <div class="editWeight">
+                                <div class="customInput">
+                                    <p>Enter Weight in Grams</p>
+                                    <input class="customInputValue" type="number">
+                                </div>
+                                <div class="customButton">
+                                    <button>250g</button>
+                                    <button>500g</button>
+                                    <button>1Kg</button>
+                                    <button>1.5Kg</button>
+                                    <button>2Kg</button>
+                                    <button>2.5Kg</button>
+                                </div>
+                                <div class="editAction">
+                                    <button class="cancel">&#10006;</button>
+                                    <button class="done">&#10004;</button>
+                                </div>
+                            </div>
                         </div>
                     </div>`
                 });
@@ -203,7 +249,20 @@
                 deliveryTo();
             }
 
-        }        
+        }       
+        
+        let editWeightToggle=false;
+
+        function editWeight(index){
+            if(editWeightToggle===false){
+                editWeightToggle=true;
+                document.getElementById(index).style.display="block";
+            }else{
+                editWeightToggle=false;
+                document.getElementById(index).style.display="none";
+            }
+            
+        }
 
         function deleteItem(index){
             totalPrice=0;

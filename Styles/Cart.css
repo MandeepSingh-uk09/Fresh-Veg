@@ -98,17 +98,18 @@ nav>h3{
 }
 
 .Item-Card{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border: 1px solid #bbb;
     border-radius: 0.5em;
     width: calc(100% - 1em);
-    height: 4rem;
 
     padding: 0.5em;
 
     margin-bottom: 10px;
+}
+.cardPreview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .Card-Pic{
@@ -150,6 +151,80 @@ nav>h3{
     cursor: pointer;
 }
 
+.editItem{
+    display: none;
+
+    height: 3rem;
+    margin-top: 0.2em;
+    padding-top: inherit;
+
+    border-top: 1px solid #bbb;
+}
+
+.editWeight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+}
+.customInput{
+    width: 35%;
+}
+
+.customInput>p{
+    margin: 0;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+.customInput>input{
+    width: calc(100% - 4px);
+    padding: 0;
+    margin: 0;
+    height: 1rem;
+    outline: none;
+}
+
+.customButton{
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    column-gap: 5%;
+    row-gap: 5px;
+}
+.customButton>button{
+    width: 30%;
+    height: min-content;
+    padding: 3px;
+    background-color: #49AD3A;
+    color: white;
+
+    border: 1px solid black;
+}
+
+.editAction{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: inherit;
+}
+
+.editAction>button{
+    height: calc(inherit / 0.5);
+    width: 100%;
+    border-radius: 0;
+}
+
+.cancel{
+    background-color: rgb(205, 24, 24);
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.done{
+    background-color: #49AD3A;
+    color: white;
+}
 /* ------------------------------- -      */
 
 
