@@ -143,22 +143,22 @@
 
 /*--------------------------------*/
 
-button{
+.placeOrderBtn{
     cursor: pointer;
     position: relative;
-    width: 40%;
+    width: 50%;
     height: 3rem;
     padding: 0;
     outline: none;
     background-color: blueviolet;
     border: none;
     border-radius: 2em;
-    
+    margin-top: 1.5em;
     transition: 500ms;
 }
 .btn-Transition{
-    width: 80%;
-    height: 2rem;    
+    width: 90%;
+    height: 1.5rem;    
 }
 .Progress{
     position: absolute;
@@ -170,7 +170,7 @@ button{
     width: 0%;
     border-radius: inherit;
 }
-button>span{
+.placeOrderBtn>span{
     position: relative;
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -178,18 +178,27 @@ button>span{
 }
 
 .btn-Cancel{
+    cursor: pointer;
     display: none;
-    margin-top: 0.5em;
+    margin-top: 1em;
     background-color: rgb(230, 32, 32);
     color: white;
     font-size: 1em;
-    height: 1.5em;
-    width: 20%;
+    height: calc(1.5em + 10px);
+    width: 30%;
+
+    padding: 5px;
+    outline: none;
+    border-radius: 2em;
+    border: none;
 }
 /*Media Queries*/
 
 @media (max-width:750px){
     .Place-Order>div{
+        width: 80%;
+    }
+    .placeOrderBtn{
         width: 80%;
     }    
 }
@@ -204,9 +213,15 @@ button>span{
         height: 2em;
         width: 80%;
     }
-    .Time-Picker>button{
-        width: 50%;
-        height: 3em;
+    .placeOrderBtn{
+        margin-top: 1em;
+        width: 70%;
+        height: 2.5em;
         font-size: 1em;
+    }
+
+    .btn-Transition{
+        width: 100%;
+        height: 1rem;    
     }
 }
