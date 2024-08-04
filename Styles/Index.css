@@ -10,8 +10,9 @@ header>a>h1{
     margin: 6px 10px;
 }
 main{
-    margin: 8vh auto;
+    margin: 8vh auto;    
     height: 75%;
+    min-height: 500px;
     max-height: 1000px;
     width: 60vw;
     background-color: white;
@@ -21,11 +22,11 @@ main{
     padding: 1em;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .signUp{
-    width: 45%;
+    width: 0%;
     height: 100%;
     background-color: white;
     display: flex;
@@ -33,13 +34,20 @@ main{
     align-items: center;
     text-align: center;
     font-size: 15px;
-}
 
-.signUp>h1{
+    transition: 500ms;
+}
+.signUp-trns{
+    width: 50%;
+}
+.userSignUp{
+    display: none;
+}
+.userSignUp>h1{
     margin: 0;
     font-size: 2em;
 }
-.signUp>h3{
+.userSignUp>h3{
     margin: 0 auto 5px;
     font-weight: lighter;
     color: #49AD3A;
@@ -146,10 +154,13 @@ form>button{
     min-height: 100%;
     padding: 2px;
 
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 0px 0px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+.image-trns{
+    border-radius: 0px 10px 10px 0px;
 }
 
 .image>div{
@@ -175,6 +186,96 @@ form>button{
     background-color: #e7dddd;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+.signIn{
+    width: 50%;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 500ms ;
+}
+.signIn-trns{
+    width: 0%;
+}
+.userSignIn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.userSignIn>h1{
+    margin-top: -2em;
+    margin-bottom: 1.5em;
+}
+.signInForm>div{
+    position: relative;
+    background-color: #efefef;
+    margin: 0 auto 2em;
+
+    height: 2.4rem;
+    width: 80%;
+
+    border: 1px solid #bbb;
+    border-radius: 0.5em;
+    
+}
+.signInForm>div:hover,
+.signInForm>div:focus-within{
+    border-color: #49AD3A;
+}
+
+.inputLabel{
+    position: absolute;
+    
+    text-align: left;
+    top: 8px;
+    left: 5px;
+    
+    transition: 300ms;
+}    
+.labelTransition{
+    top:-12px;
+    left: 5px;
+    scale: 0.8;
+    background-color: white;
+    padding: 1px 5px;
+    color: #49AD3A;
+
+    border-radius: 0.2em;
+}
+.signInForm>div>input{
+    margin: 0px 5px;
+    border: none;
+    outline: none;
+    width: calc(100% - 14px);
+    height: calc(100% - 2px);
+    background-color: transparent;
+}
+.signInBtn{
+    cursor: pointer;
+
+    background-color: #49AD3A;
+    border: 1px solid #bbb;
+    color: white;
+
+    font-weight: bold;
+    font-size: larger;
+
+    height: 2.5rem;
+    width: 10rem;
+
+    border-radius: 1.5em;
+    margin-top: 0.5em;
+}
+p>span{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 }
 
 @media (max-width:1100px){
