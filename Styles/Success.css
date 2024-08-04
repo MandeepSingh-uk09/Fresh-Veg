@@ -39,6 +39,16 @@
 
 }
 .Go-back{
+    cursor: pointer;
+    height: 3rem;
+    padding: 0;
+    outline: none;
+    border-radius: 2em;
+    border: none;
+    background-color: blueviolet;
+    
+    
+
     margin-top: 1em;
     width: 80%;
     color: white;
