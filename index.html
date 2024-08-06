@@ -172,7 +172,7 @@
             const email=document.getElementById('userEmail').value;
             const mobileNo=document.getElementById('userMobileNo').value;
             
-            const getUser=JSON.parse(localStorage.getItem("userLogIn"));
+            const getUser=JSON.parse(localStorage.getItem("userLogIn"))|| false;
 
 
             if(!getUser[email]){
