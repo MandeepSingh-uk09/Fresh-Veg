@@ -79,7 +79,7 @@
         <div class="signIn">
             <div class="userSignIn">
                 <h1>Hello Veggies :&#41;</h1>
-                <form class="signInForm" onsubmit="validate()">
+                <form id="signInForm" class="signInForm" onsubmit="validate()">
                     <div id="emailDiv" onmouseenter="addTransition(`email`)">
                         <label id="email" class="inputLabel">Email</label>
                         <input id="userEmail" type="email" required onclick="addTransition(`email`)">
@@ -88,6 +88,7 @@
                         <label id="mobileNo" class="inputLabel">Mobile No.</label>
                         <input id="userMobileNo" type="tel" required maxlength="10" minlength="10" onclick="addTransition(`mobileNo`)">
                     </div>
+                    <p id="validation"></p>
                     <button class="signInBtn" type="submit" >Log In</button>
                 </form>              
                 <p>Don't have an account &#63 <span onclick="openSignUp()">Sign up.</span></p>
@@ -96,10 +97,7 @@
     </main>
 
 
-    <script>
-
-
-        
+    <script>        
 
         function getUser(){
 
@@ -115,8 +113,11 @@
                 Pin_Code:document.getElementById('Pin-Code').value
             };
 
+            const userLogIn={}
             
-            
+            userLogIn[user.Email]=user.Mobile_No;
+
+            localStorage.setItem("userLogIn",JSON.stringify(userLogIn));
 
             document.getElementById('Form').reset();
 
@@ -146,9 +147,15 @@
             document.querySelector('.signUp').classList.add("signUp-trns");
 
             document.querySelector('.image').classList.add('image-trns');
-            setTimeout(()=>{
-                document.querySelector('.userSignUp').style.display="block";
-            },200)
+            if(window.innerWidth>1100){
+                setTimeout(()=>{
+                    document.querySelector('.userSignUp').style.display="flex";
+                },200);
+            }else{
+                document.querySelector('.userSignUp').style.display="flex";
+            }
+            
+            
         }
 
         function openSignIn(){
@@ -164,15 +171,24 @@
 
             const email=document.getElementById('userEmail').value;
             const mobileNo=document.getElementById('userMobileNo').value;
-            const userJson= await fetch("./Database/user.json"); 
-            const user= await userJson.json()
+            
+            const getUser=JSON.parse(localStorage.getItem("userLogIn"));
 
 
-            if(mobileNo === user[email]){
-                console.log("Success");
+            if(!getUser[email]){
+                document.getElementById('validation').innerHTML="User Not Found !!"
+                document.getElementById('signInForm').reset();                
             }else{
-                console.log("failure");
+                if(mobileNo === getUser[email]){       
+                    document.getElementById('signInForm').reset();         
+                    location.replace("main.html");
+                }else{
+                    document.getElementById('userMobileNo').value='';
+                    document.getElementById('validation').innerHTML="Incorrect Mobile No. ";
+                }
             }
+
+                        
             
         }
     </script>

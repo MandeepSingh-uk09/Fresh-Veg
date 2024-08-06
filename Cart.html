@@ -134,9 +134,7 @@
 
     <script>
 
-
-
-
+        const User=JSON.parse(localStorage.getItem("USER"));
 
         function placeOrder(){
             window.open('checkOut.html','_self');           
@@ -156,8 +154,6 @@
             });
             totalWeight=totalWeight/1000;
         }
-
-        const User=JSON.parse(localStorage.getItem("USER"));
 
 
         let totalPrice=0;
@@ -212,6 +208,7 @@
                 document.querySelector('.Item-Card').style.display='none';
                 document.querySelector('.Delivery-By').style.display='none';
                 document.querySelector('.Items').innerHTML=shoppingCartDOM;
+                deliveryTo();
             }
             else{
                 console.log("called 1.2")
@@ -328,8 +325,15 @@
             }
         }
 
-        totalWeightItems();
-        shoppingCart();
+        if(!User){
+            location.replace("index.html")
+        }
+        else{
+            totalWeightItems();
+            shoppingCart();
+        }
+
+        
 
     </script>
 </body>
