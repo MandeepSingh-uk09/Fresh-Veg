@@ -10,8 +10,9 @@ header>a>h1{
     margin: 6px 10px;
 }
 main{
-    margin: 8vh auto;
+    margin: 8vh auto;    
     height: 75%;
+    min-height: 500px;
     max-height: 1000px;
     width: 60vw;
     background-color: white;
@@ -21,11 +22,11 @@ main{
     padding: 1em;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .signUp{
-    width: 45%;
+    width: 0%;
     height: 100%;
     background-color: white;
     display: flex;
@@ -33,13 +34,22 @@ main{
     align-items: center;
     text-align: center;
     font-size: 15px;
-}
 
-.signUp>h1{
+    transition: 500ms;
+}
+.signUp-trns{
+    width: 50%;
+}
+.userSignUp{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.userSignUp>h1{
     margin: 0;
     font-size: 2em;
 }
-.signUp>h3{
+.userSignUp>h3{
     margin: 0 auto 5px;
     font-weight: lighter;
     color: #49AD3A;
@@ -146,10 +156,13 @@ form>button{
     min-height: 100%;
     padding: 2px;
 
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 0px 0px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+.image-trns{
+    border-radius: 0px 10px 10px 0px;
 }
 
 .image>div{
@@ -177,26 +190,160 @@ form>button{
     font-weight: bold;
 }
 
+.signIn{
+    width: 50%;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 500ms ;
+}
+.signIn-trns{
+    width: 0%;
+}
+.userSignIn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.userSignIn>h1{
+    margin-top: -2em;
+    margin-bottom: 1.5em;
+}
+.signInForm>div{
+    position: relative;
+    background-color: #efefef;
+    margin: 0 auto 2em;
+
+    height: 2.4rem;
+    width: 80%;
+
+    border: 1px solid #bbb;
+    border-radius: 0.5em;
+    
+}
+.signInForm>div:hover,
+.signInForm>div:focus-within{
+    border-color: #49AD3A;
+}
+
+.inputLabel{
+    position: absolute;
+    color: gray;
+    text-align: left;
+    top: 10px;
+    left: 5px;
+    
+    transition: 300ms;
+}    
+.labelTransition{
+    top:-12px;
+    left: 5px;
+    scale: 0.8;
+    background-color: white;
+    padding: 1px 5px;
+    color: #49AD3A;
+
+    border-radius: 0.2em;
+}
+.signInForm>div>input{
+    margin: 0px 5px;
+    border: none;
+    outline: none;
+    width: calc(100% - 14px);
+    height: calc(100% - 2px);
+    background-color: transparent;
+}
+.signInBtn{
+    cursor: pointer;
+
+    background-color: #49AD3A;
+    border: 1px solid #bbb;
+    color: white;
+
+    font-weight: bold;
+    font-size: larger;
+
+    height: 2.5rem;
+    width: 10rem;
+
+    border-radius: 1.5em;
+    margin-top: 0.5em;
+}
+p>span{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+#validation{
+    margin: 0;
+    color: rgb(223, 18, 18);
+}
+
 @media (max-width:1100px){
     main{
         flex-direction: column-reverse;
         justify-content: space-evenly;
+        align-items: center;
     }
-    .signUp{
-        margin-top: 2em;
+    .signUp{        
         width: 100%;
+        height: 0%;
+    }
+    .signUp-trns{
+        height: 100%;
+    }
+    .userSignUp{
+        width: 90%;
+        height: 100%;
+        padding-top: 2em;
     }
     .image{
-        width: 100%;
+        width: calc(100% - 2em);
+        padding: 1em;
         flex-direction: row;
         align-items: center;
+
+        border-radius: 1em;
     }
     .image>div{
         width: 20%;
     }
+
+    .signIn{
+        width: 70%;
+    }
+    .signIn-trns{
+        height: 0%;
+    }
+    .userSignIn>h1{
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+    }
+    .signInForm>div{
+        margin: 0 auto 1em;
+        width: 100%;
+        
+    }
 }
 
 @media(max-width:599px){
+
+    header{
+        font-size: xx-small;
+    }
+
+    main{
+        margin-top: 3em;
+        width: 85%;
+    }
+
+
     .image{
         display: none;
     }
@@ -204,6 +351,17 @@ form>button{
         width: 100%;
         font-size: 10px;
     }
+    .userSignUp{
+        width: 100%;
+    }
+    .userSignUp>h1,h3{
+        font-size: xx-large;
+    }
+    .userSignUp>h3{
+        font-size: medium;
+        margin-bottom: 1em;
+    }
+
     .input{
         padding: 0;
         display: flex;
@@ -213,16 +371,50 @@ form>button{
         width: calc(100% - 12px);
         margin-bottom: 2em;
     }
+    .Label>input{
+        font-size: 16px;
+    }
     .input:nth-child(2)>div{
         width: calc(100% - 12px);
     }
-}
-@media (max-height:450px) {
-    .image{
-        display: none;
+
+    .input:nth-child(1),
+    .input:nth-child(3),
+    .input:nth-child(4){
+        flex-direction: row;
+       
     }
-    .signUp{
-        margin-top: 2em;
+
+    .input:nth-child(1)>div{
+        width: calc(48% - 12px);
+    }
+    .input:nth-child(3)>div{
+        width: calc(48% - 12px);
+    }
+    .input:nth-child(4)>div{
+        width: calc(48% - 12px);
+    }
+
+    #Form>button{
+        font-size: large;
+    }
+    
+    .userSignUp>p{
+        font-size: medium;
+    }
+
+
+
+    .signIn{
         width: 100%;
-    }    
+    }
+    .userSignIn>h1{
+        margin-bottom: 2em;
+    }
+    .signInForm>div{
+        margin-bottom: 2em;
+    }
+    .signInBtn{
+        margin-top: 3em;
+    }
 }

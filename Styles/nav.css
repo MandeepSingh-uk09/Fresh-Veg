@@ -11,20 +11,20 @@ header{
 /* Fresh VEG ICON*/
 
 .Fresh-Veg{
+    cursor: pointer;
     display: flex;
     align-items: center;
 }
 .Logo{
     padding: 4px;
     padding-bottom: 0;
-    width: 60px;
+    width: 3rem;
     border-radius: 50%;
 }
 .Fresh-Veg > div > h1 {
-    cursor: pointer;
     display: inline;
     margin: 0%;
-    margin-left: 0.4em;
+    margin-left: 0.1em;
 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;

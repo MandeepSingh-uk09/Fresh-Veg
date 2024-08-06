@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <div class="Fresh-Veg">
+        <div class="Fresh-Veg" onclick="goToLogin()">
             <div><img class="Logo" src="Images/Fresh-veg.jpg" alt="logo"></div>
             <div>
                 <h1>Fresh-Veg</h1>
@@ -290,9 +290,14 @@
             
         }
 
+        function goToLogin(){
+            location.replace("index.html")
+        }
+
         /* ----------------------------------------------------------------------------------------------------- */
 
         window.addEventListener('resize',windowWidth);
+
 
         tempSummaryData();
         gettingUser();

@@ -16,73 +16,90 @@
     </header>
     <main>
         <div class="signUp">
-            <h1>Fresh-Veg</h1>
-            <h3>Welcome to Nature's Bounty:</h3>
-            <form id="Form" onsubmit="getUser()">
-                <div class="input">
-                    <div class="Label" onclick="labelTransition(1)">
-                        <label class="Input-Label1" for="Name">Name</label>
-                        <input id="Name" type="text" required>
+            <div class="userSignUp">
+                <h1>Fresh-Veg</h1>
+                <h3>Welcome to Nature's Bounty:</h3>
+                <form id="Form" onsubmit="getUser()">
+                    <div class="input">
+                        <div class="Label" onclick="labelTransition(1)">
+                            <label class="Input-Label1" for="Name">Name</label>
+                            <input id="Name" type="text" required>
+                        </div>
+                        <div class="Label" onclick="labelTransition(2)">
+                            <label class="Input-Label2" for="Mobile">Mobile No.</label>
+                            <input id="Mobile" type="number" minlength="10" maxlength="10" required>
+                        </div>                  
                     </div>
-                    <div class="Label" onclick="labelTransition(2)">
-                        <label class="Input-Label2" for="Mobile">Mobile No.</label>
-                        <input id="Mobile" type="number" minlength="10" maxlength="10" required>
-                    </div>                  
-                </div>
 
-                <div class="input">
-                    <div class="Label" onclick="labelTransition(3)">
-                        <label class="Input-Label3" for="Email">Email</label>
-                        <input id="Email" type="email" required>
+                    <div class="input">
+                        <div class="Label" onclick="labelTransition(3)">
+                            <label class="Input-Label3" for="Email">Email</label>
+                            <input id="Email" type="email" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="input">
-                    <div class="Label" onac onclick="labelTransition(4)">
-                        <label class="Input-Label4" for="HouseNo">House No.</label>
-                        <input id="HouseNo" type="text">
-                    </div>                                        
-                    <div class="Label" onclick="labelTransition(5)">
-                        <label class="Input-Label5" for="Area">Area</label>                        
-                        <input id="Area" type="text">
+                    <div class="input">
+                        <div class="Label" onac onclick="labelTransition(4)">
+                            <label class="Input-Label4" for="HouseNo">House No.</label>
+                            <input id="HouseNo" type="text">
+                        </div>                                        
+                        <div class="Label" onclick="labelTransition(5)">
+                            <label class="Input-Label5" for="Area">Area</label>                        
+                            <input id="Area" type="text">
+                        </div>
                     </div>
-                </div>
 
-                <div class="input">
-                    <div class="Label" onclick="labelTransition(6)">
-                        <label class="Input-Label6" for="City">City</label>
-                        <input id="City" type="text">
-                    </div>                    
-                    <div class="Label" onclick="labelTransition(7)">
-                        <label class="Input-Label7" for="State">State</label>
-                        <input id="State" type="text">
+                    <div class="input">
+                        <div class="Label" onclick="labelTransition(6)">
+                            <label class="Input-Label6" for="City">City</label>
+                            <input id="City" type="text">
+                        </div>                    
+                        <div class="Label" onclick="labelTransition(7)">
+                            <label class="Input-Label7" for="State">State</label>
+                            <input id="State" type="text">
+                        </div>
+                        
                     </div>
-                    
-                </div>
-                <div class="input">
-                    <div class="Label" onclick="labelTransition(8)">
-                        <label class="Input-Label8" for="Pin-Code">Pin Code</label>
-                        <input id="Pin-Code" type="number" minlength="6" maxlength="6" required>
-                    </div>                        
-                </div>
+                    <div class="input">
+                        <div class="Label" onclick="labelTransition(8)">
+                            <label class="Input-Label8" for="Pin-Code">Pin Code</label>
+                            <input id="Pin-Code" type="number" minlength="6" maxlength="6" required>
+                        </div>                        
+                    </div>
 
-                <button>Submit</button>
-            </form>
+                    <button>Submit</button>
+                </form>
+                <p>Have an account &#63 <span onclick="openSignIn()">Sign In.</span></p>
+            </div>
         </div>
         <div class="image">
             <div><img src="Images/Fresh-veg.jpg" alt=""></div>
             <p>Your Source for Fresh, Organic Fruits and Vegetables</p>            
         </div>
+        <div class="signIn">
+            <div class="userSignIn">
+                <h1>Hello Veggies :&#41;</h1>
+                <form id="signInForm" class="signInForm" onsubmit="validate()">
+                    <div id="emailDiv" onmouseenter="addTransition(`email`)">
+                        <label id="email" class="inputLabel">Email</label>
+                        <input id="userEmail" type="email" required onclick="addTransition(`email`)">
+                    </div>
+                    <div id="mobileNoDiv" onmouseenter="addTransition(`mobileNo`)">
+                        <label id="mobileNo" class="inputLabel">Mobile No.</label>
+                        <input id="userMobileNo" type="tel" required maxlength="10" minlength="10" onclick="addTransition(`mobileNo`)">
+                    </div>
+                    <p id="validation"></p>
+                    <button class="signInBtn" type="submit" >Log In</button>
+                </form>              
+                <p>Don't have an account &#63 <span onclick="openSignUp()">Sign up.</span></p>
+            </div>            
+        </div>
     </main>
 
 
-    <script>
-
-
-        
+    <script>        
 
         function getUser(){
-
 
             event.preventDefault();
             const user={
@@ -96,8 +113,11 @@
                 Pin_Code:document.getElementById('Pin-Code').value
             };
 
+            const userLogIn={}
             
-            
+            userLogIn[user.Email]=user.Mobile_No;
+
+            localStorage.setItem("userLogIn",JSON.stringify(userLogIn));
 
             document.getElementById('Form').reset();
 
@@ -108,7 +128,68 @@
 
         function labelTransition(prop){
             const labelTransition=document.querySelector(`.Input-Label${prop}`);
-            labelTransition.classList.add('Label-Transition');
+            labelTransition.classList.add('Label-Transition');            
+        }
+
+        function addTransition(ID){
+            document.getElementById(ID).classList.add('labelTransition');                     
+        }
+
+        function removeTransition(ID){
+            document.getElementById(ID).classList.remove('labelTransition');
+        }
+
+        function openSignUp(){
+            /* document.querySelector('.signUp').style.display="flex"; */
+            document.querySelector('.userSignIn').style.display="none";
+            document.querySelector('.signIn').classList.add("signIn-trns");
+            
+            document.querySelector('.signUp').classList.add("signUp-trns");
+
+            document.querySelector('.image').classList.add('image-trns');
+            if(window.innerWidth>1100){
+                setTimeout(()=>{
+                    document.querySelector('.userSignUp').style.display="flex";
+                },200);
+            }else{
+                document.querySelector('.userSignUp').style.display="flex";
+            }
+            
+            
+        }
+
+        function openSignIn(){
+            document.querySelector('.userSignIn').style.display="flex";
+            document.querySelector('.signIn').classList.remove("signIn-trns");
+            document.querySelector('.userSignUp').style.display="none";
+            document.querySelector('.signUp').classList.remove("signUp-trns");
+            document.querySelector('.image').classList.remove('image-trns');
+        }
+
+        async function validate(){
+            event.preventDefault();
+
+            const email=document.getElementById('userEmail').value;
+            const mobileNo=document.getElementById('userMobileNo').value;
+            
+            const getUser=JSON.parse(localStorage.getItem("userLogIn"));
+
+
+            if(!getUser[email]){
+                document.getElementById('validation').innerHTML="User Not Found !!"
+                document.getElementById('signInForm').reset();                
+            }else{
+                if(mobileNo === getUser[email]){       
+                    document.getElementById('signInForm').reset();         
+                    location.replace("main.html");
+                }else{
+                    document.getElementById('userMobileNo').value='';
+                    document.getElementById('validation').innerHTML="Incorrect Mobile No. ";
+                }
+            }
+
+                        
+            
         }
     </script>
 </body>
