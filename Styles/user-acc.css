@@ -1,0 +1,508 @@
+.userAcc{
+    margin-top: 10vh;
+    display: none;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    z-index: 100;
+}
+.account{
+    margin: 4% auto 0;
+    width: calc(60% - 2em);
+    height: 80%;    
+    min-height: min-content;
+    background-image: url(Fresh-Veg-Blur.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    padding: 1em;
+    
+}
+.account>div{
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #49AD3A;
+    padding: 1em;
+    height: calc(100% - 2em);
+
+    border-radius: 0.5em;
+}
+.options{
+    width: calc(30% - 1.5em);
+    height: calc(100% 2.1em);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    
+    border-right: 2px solid #49AD3A;
+    padding-right: 1em;
+    
+}
+.optionName{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.optionName>h4{
+    margin: 0.3em 0;
+    padding: 0.5em;
+    text-align: left;
+    color: white;
+    border: 1px solid black;
+    background-color: #49AD3A;
+
+    border-radius: 1em;
+
+    cursor: pointer;
+}
+.Logout{
+    background-color: red;
+    position: relative;
+    padding: 0.2em ;
+
+    color: white;
+    border: 1px solid black;
+    border-radius: 1em;
+    bottom: 0;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+.Logout>img{
+    width: 15%;
+}
+.Logout>p{
+    width: 75%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+
+    display: inline;
+}
+
+.optionView{
+    width: calc(65% - 2em);
+    height: calc(100% - 2em);
+    
+    background-image: url(Fresh-Veg-Blur.png);
+    background-position: center;
+    background-size: cover;
+    
+    border-radius: 1em;
+    
+    border: 1px solid black;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.userLottie{
+    width: 40%;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    border: 5px solid blueviolet;
+    border-radius: 50%;
+    background-color: rgb(131, 248, 149);
+}
+.optionView>p{
+    width: 100%;
+    text-align: center;
+    font-family: cursive;
+    font-style: italic;
+    margin: 0;
+    color: black;
+    font-weight: bold;
+    padding: 0 1em;
+}
+#passwordMsg{
+    font-family: cursive;
+    font-style: italic;
+    margin: 0;
+    color: red;
+    font-weight: bold;
+    padding: 0 1em;
+}
+.userDetails{
+    width: 90%;
+    padding: 0 5%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2em;
+    text-align: center;
+}
+.userDetails-bg{
+    background-color: transparent;
+    border: none;
+}
+.userDetails>h2{
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-radius: 0.5em;
+}
+.Password>input{
+    margin: 0 10% 0.5em;
+    width: calc(80% - 1em);
+    padding: 0.5em;
+
+    border-radius: 1em;
+    background-color: #eaeaea;
+    font-size: 1em;
+}
+.Password>button{
+    width: 100%;
+    padding: 0.6em 0;
+    background-color: #49AD3A;
+    border: 1px solid black;
+
+    color: white;
+    font-weight: bold;
+    border-radius: 1em;
+
+    cursor: pointer;
+}
+.optionView>button{
+    width: 100%;
+    height: 8%;
+
+    background-color: #49AD3A;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    border-radius: 1em;
+
+    cursor: pointer;
+}
+
+
+/* Adrress */
+
+.Address-Card{
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Address-Card>div{
+    padding: 1em;
+    background-color: white;
+    border-radius: 1em;
+}
+.Address{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #bbb;
+}
+
+.Address>h4{
+    text-align: left;
+    margin: 0;   
+    border-bottom: 1px solid #bbb; 
+}
+
+.User-details{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 1em;
+    font-family: sans-serif;
+}
+.User-details>h3{
+    margin: 0;
+}
+.User-details>div>h6{
+    margin: 0;
+    text-align: right;
+    font-size: small;
+}
+
+.User-address{
+    width: calc(100% - 2em);
+}
+.User-address>h5{
+    margin-bottom: 0;
+    font-size: larger;
+}
+.User-address>sub{
+    margin: 0;
+    font-size: medium;
+}
+.Address-Card>button{
+    margin: 0 auto;
+    width: 80%;
+    height: 8%;
+    color: white;
+    background-color: #49AD3A;
+    border-radius: 1em;
+    border: 1px solid black;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Address Update */
+
+#address-P{
+    text-align: center;
+    color: red;
+    
+}
+
+#Form{
+    width: 100%;
+    height: 100%;    
+    background-color: white;
+    border-radius: 1em;
+
+    border: 1px solid black;
+}
+.input{
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    padding:  5px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.Label{
+    font-size: 12px;
+    width: 45%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    
+    padding: 5px;
+    background-color: #efefef;
+    border: 1px solid rgb(99, 99, 99);
+    border-radius: 10px;
+}
+.Label:focus-within {    
+    color: #49AD3A;
+    border: 1px solid #49AD3A;
+}
+
+.Input-Label{
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+     
+    font-size: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #49AD3A;
+
+    transition: 300ms;
+}
+.Label>input{
+    width: 100%;
+    height: 2rem;
+    padding: 0;
+    border:none;
+    background-color: transparent;
+    border-radius: 0.5em;
+    outline: none;
+
+    color: gray;
+}
+.Label>input:focus{
+    color: black;
+}
+
+.input:nth-child(3){
+    width: calc(100% - 20px);
+}
+.input:nth-child(3)>div{
+    width: 100%;
+}
+
+#Form>button{
+    cursor: pointer;
+
+    background-color: #49AD3A;
+    border: 1px solid black;
+    color: white;
+
+    font-weight: bold;
+    font-size: larger;
+
+    height: 2rem;
+    width: 80%;
+    margin-left: 10%;
+
+    border-radius: 1.5em;
+    margin-top: 5%;
+}
+
+/* Orders      */
+
+.commingSoon>div{
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin: auto;
+}
+.commingSoon>h1{
+    text-align: center;
+}
+
+/* responsive  */
+
+
+@media screen and (max-width:1000px) {
+    .account{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .account{
+        width: 80%;
+    }
+}
+@media screen and (max-width:750px) and (min-width:601px) {
+    .User-details{
+        flex-direction: column;
+    }
+    .User-details>div{
+        margin: 0.5em 0;
+    }
+    .User-details>div>h6{
+        text-align: left;
+    }
+}
+@media screen and (max-width:600px) {
+    .account{
+        width: 85%;
+    }
+    .account>div{
+        flex-direction: column;
+    }
+    .options{
+        flex-direction: row;
+        border: none;
+        margin-bottom: 0.4em;
+        width: 100%;
+        padding-right: 0;
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .optionName {
+        flex-direction: row;
+        width: 70%;
+        justify-content: space-between;
+    }
+    .optionName>h4 {
+        width: 30%;
+        padding:  0.5em 0;
+        text-align: center; 
+
+
+    }
+    .Logout{
+        width: 25%;
+        padding: 0;        
+        margin: 0.3em 0;
+        justify-content: left;
+    }
+    .Logout>img{
+        margin-left: 5%;
+        width: 25%;
+    }
+    .Logout>p{
+        width: 60%;
+    }
+    .optionView{
+        width: calc(100% - 2em);
+    }
+
+    #Form>button{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .account{
+        width: calc(95% - 2em);
+        background-image: none;
+    }
+    .options{
+        font-size: small;
+    }
+    .optionName {
+        flex-direction: row;
+        width: 70%;
+        justify-content: space-between;
+    }
+    .optionName>h4 {
+        width: 32%;
+        margin: 0;
+        padding:  0.5em 0;
+        text-align: center; 
+
+
+    }
+    .Logout{
+        width: 25%;
+        padding: 0;        
+        margin: 0;
+        justify-content: left;
+        height: calc(100% - 2px);
+    }
+    .Password>input {
+        margin: 0;
+        margin-bottom: 0.5em;
+        width: calc(100% - 1em);
+    }
+    .User-details{
+        flex-direction: column;
+    }
+    .User-details>div{
+        margin-top: 0.5em;
+    }
+    .User-details>div>h6{
+        text-align: left;
+    }
+    .Address-Card>button{
+        font-size: medium;
+    }
+    #Form>button{
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width:400px){
+    
+    .optionName{
+        width: 80%;
+    }
+    .optionName>h4 {
+        width: 32%;
+
+
+    }
+    .Logout{
+        width: 10%;
+        justify-content: center;
+        background-color: rgb(243, 61, 61);
+    }
+    .Logout>img{
+        width: 90%;
+    }
+    .Logout>p{
+        display: none;
+    }
+    .User-details>div>h6{
+        font-size: x-small;
+    }
+}
