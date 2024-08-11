@@ -7,20 +7,27 @@
     <title>Fresh-Veg</title>
     <link rel="icon" href="Images/Fresh-veg.jpg">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel='stylesheet' href='Styles/nav.css'>
     <link rel="stylesheet" href="Styles/General.css">
     <link rel="stylesheet" href="Styles/main.css">
     <link rel="stylesheet" href="Styles/Summary.css">
+    <link rel="stylesheet" href="Styles/user-acc.css">
+    <script>
+        const loginState= JSON.parse(localStorage.getItem("loginState"))
+        if(loginState===false){
+            location.replace("index.html");
+        }
+    </script>
 </head>
 
 <body>
+    <!-- header For navigation -->    
     <header>
-        <div class="Fresh-Veg" onclick="goToLogin()">
+        <a class="Fresh-Veg" href="Main.html">
             <div><img class="Logo" src="Images/Fresh-veg.jpg" alt="logo"></div>
-            <div>
-                <h1>Fresh-Veg</h1>
-            </div>
-        </div>
+            <div><h1>Fresh-Veg</h1></div>
+        </a>
         
         <div class="Navigation">
             <nav>
@@ -29,283 +36,128 @@
                         <h6>Delivery To :-</h6>
                         <h4>133001- Rail Vihar</h4>
                     </div>
-
                 </div>
-                <h1 id="User">User</h1>
+                <!-- Making seperate corner for the user -->
             </nav>
-            <img onclick="goToCart()" src="Images/CART.svg" alt="">
-           <!--  <img class="Nav-Icon" src="Images/NAV.svg" alt=""> -->
+
+            <img onclick="aboutUser()" src="Images/user.svg" alt="Acc">
+            <img onclick="goToCart()" src="Images/CART.svg" alt="">           
         </div>
     </header>
-    <div class="Search">
+
+    <!-- User Info diV contain user information -->
+    <div class="userAcc">
+        <div class="account">
+            <div>
+                <!-- User navigation -->
+                <div class="options">
+                    <div class="optionName">
+                        <h4 onclick="usercard('User')">User</h4>
+                        <h4 onclick="usercard('Address')">Address</h4>
+                        <h4 onclick="usercard('Orders')">Orders</h4>
+                    </div>                    
+                    <div class="Logout" onclick="goToLogin()">
+                        <img src="Images/logout.svg" alt="">
+                        <p>Logout</p>
+                    </div>
+                </div>
+
+                <!-- Dom change on choosing optins from option name -->
+                <div class="optionView"></div>
+            </div>            
+        </div>
+    </div>
+    
+    <!-- Main Data Preview -->
+    <div id="mainContent"> 
+
+        <!-- Search Bar ( Not Functional Yet :) ) -->
+        <div class="Search">
             <div>
                 <input type="text" placeholder="Search Items">
-                <button><img src="Images/Search.svg" alt=""></button>
+                <button><img src="Images/Search.svg" alt="Search-ICON"></button>
             </div>
-
-    </div>
-
-    <!-- Summary Button Toggle -->
-    <button class="btn-Summary" onclick="summaryBtn()"><img src="Images/List.svg" alt=""></button>
-    
-    
-    <main>
-        <div class="Content">
-            <!-- <div class="Card">
-                <img src="Images/vegetable/1.jpg" alt="">
-                <div class="Item-name">
-                    <h3>Potato</h3>
-                    <h4>₹150/kg</h4>
-                </div>
-                <div class="Item-Qty">
-                    <button>250g</button>
-                    <button>500g</button>
-                    <button>1kg</button>
-                </div>
-                <button>Add</button>
-            </div> -->            
         </div>
-        <div class="Selected-Items">
-            <h2>Summary</h2>
-            <div class="Items-In-Cart">
-                <div class="Cart">
-                    <div class="Cart-Item">
-                        <h4></h4>
-                    </div>
-                    <div class="Cart-Item-Qty"></div>
-                </div>            
+
+        <!-- Summary Button Toggle For mobile view or veiwpor width less than 700px -->
+        <button class="btn-Summary" onclick="summaryBtn()"><img src="Images/List.svg" alt="summaryBtn"></button>
+        
+        <!-- DATA loading div , wait till data not fetched -->
+        <div id="loader" class="loader" >
+
+            <!-- Avacado animations -->
+            <div class="loadingAnimation">
+                <lottie-player 
+                        src="Images/Lottie/loading.json" 
+                        background="transparent" 
+                        speed="2" 
+                        style="width: 100%; height: 100%" 
+                        direction="1" 
+                        mode="normal" 
+                        autoplay
+                        loop
+                    >
+                </lottie-player>                
             </div>
-            <div class="Total">
-                <h4>Total Weight</h4>
-                <h4 class="totalWtDOM"></h4>
+
+            <!-- Docs Loading animation -->
+            <div class="loadingDots">
+                <lottie-player 
+                    src="Images/Lottie/LoadingDots.json" 
+                    background="transparent" 
+                    speed="1.3" 
+                    style="width: 100%; height: 100%" 
+                    direction="1" 
+                    mode="normal" 
+                    autoplay
+                    loop
+                >
+            </lottie-player>
             </div>
-            <div class="buttons">
-                <button class="clearCart" onclick="clearCart()">Clear</button>
-                <button class="goToCart" onclick="goToCart()">Go to Cart</button>
-            </div>    
         </div>
-    </main>
-
-
-    <script>
-
-        let pinCode;
-        let price;
-        let itemDisplay;
-
-        function gettingUser(){
-            const User=JSON.parse(localStorage.getItem("USER")) ;
-            if(!User){
-                window.open("index.html","_self");
-            }
-            pinCode=User.Pin_Code;
-            
-            const userLoction=document.getElementById("Location");
-            userLoction.style.visibility='visible';
-            userLoction.innerHTML=`<h6>Delivery To :-</h6><h4>${User.Pin_Code}- ${User.Area}</h4>`;
-
-            const userName=document.getElementById("User");
-            userName.innerHTML=`${User.Name}`;
-        }
         
-        /* ----------------------------------------------------------------------------------------------------- */
-      
-        /* Summary DOM Changing */
-                
-        let summary = JSON.parse(localStorage.getItem("summary")) || [];
-        let tempSummary={};
+        <!-- Container for vegetebles Cards & Summary -->
+        <main id="main">
 
-        function tempSummaryData(){
-            summary.forEach(element => {
-                tempSummary[element.vegID]=element;
-            });
-        }
-        
-        let totalWT = 0;
-        let CartVegID;
+            <!-- Item Card Container -->
+            <div class="Content"></div>
 
+            <!-- Summary Of selected Items -->
+            <div class="Selected-Items">
+                <h2>Summary</h2>
 
-        function itemWeight(WT,ID) {
-           /*  if(tempSummary[ID]){
-                totalWT =WT;
-            } */
-            if (CartVegID===ID) {
-                console.log(CartVegID);
-                totalWT+=WT;
-            } else {
-                CartVegID=ID;
-                console.log(CartVegID);
-                totalWT=0;
-                totalWT += WT;
-            }
-            console.log(totalWT);
-        }
-
-        function summaryDOM() {
-            let summaryDOM = '';
-            let totalWeight = 0;
-            summary.forEach((element, index) => {
-                summaryDOM +=
-                    `<div class="Cart">                             
-                        <div class="Cart-Item"><h4>${index + 1}. ${element.Name}</h4></div>
-                        <div class="Cart-Item-Qty"> ${element.Weight}g</div>
-                    </div>`;
-                totalWeight += Number(element.Weight);
-            })
-            document.querySelector('.Items-In-Cart').innerHTML = summaryDOM;
-            totalWeight = totalWeight / 1000;
-            document.querySelector('.totalWtDOM').innerHTML = `${totalWeight} Kg`;
-
-            /* Not needed anymore , calculating seperately in cart.html */
-            /* localStorage.setItem("totalWeight", totalWeight); */
-        }
-        
-
-        function addItem(ID) {
-            const tempID=''+(ID+1);
-            if(tempSummary[tempID]===undefined){
-                if (totalWT === 0) totalWT = 250;
-                let summaryObject = {
-                    vegID: null,
-                    Name: '',
-                    Price: null,
-                    Weight: null
-                }
-                summaryObject.vegID = itemDisplay[ID].vegID;
-                summaryObject.Name = itemDisplay[ID].vegName;
-                summaryObject.Price = price[ID].Price;
-                summaryObject.Weight = totalWT;
-                
-                tempSummary[tempID]=summaryObject;
-
-                
-                summary.push(summaryObject);
-
-                
-            }
-            else{
-                tempSummary[tempID].Weight += totalWT;
-            }
-            totalWT = 0;
-            summaryDOM();
-        }
-
-        /* ----------------------------------------------------------------------------------------------------- */
-
-        /* Loading items on the screen of Main  */
-
-        function displayItem() {
-            let displayItemDom = '';
-
-            itemDisplay.forEach((element, index) => {
-                displayItemDom +=
-                    `<div class="Card">
-                        <img src="Images/vegetable/${element.vegID}.jpg" alt="${element.vegName}">
-                        <div class="Item-name">
-                            <h3>${element.vegName}</h3>
-                            <h4>₹${price[index].Price}/kg</h4>                    
-                        </div>                
-                        <div class="Item-Qty">
-                            <button onclick="itemWeight(250,${element.vegID})">250g</button>
-                            <button onclick="itemWeight(500,${element.vegID})">500g</button>
-                            <button onclick="itemWeight(1000,${element.vegID})">1kg</button>
+                <!-- Selected Item view in Cart  -->
+                <div class="Items-In-Cart">
+                    <div class="Cart">
+                        <div class="Cart-Item">
+                            <h4></h4>
                         </div>
-                        <button onclick="addItem(${(element.vegID) - 1})">Add</button>
-                    </div>`
-            });
+                        <div class="Cart-Item-Qty"></div>
+                    </div>            
+                </div>
 
-            document.querySelector('.Content').innerHTML = displayItemDom;
-            summaryDOM()
-        }
+                <!-- Total weight of the cart items -->
+                <div class="Total">
+                    <h4>Total Weight</h4>
+                    <h4 class="totalWtDOM"></h4>
+                </div>
 
+                <!-- Buttons for the action to perform on the Summary -->
+                <div class="buttons">
+                    <button class="clearCart" onclick="clearCart()">Clear</button>
+                    <button class="goToCart" onclick="goToCart()">Go to Cart</button>
+                </div>    
+            </div>
+        </main>
+    </div>    
+    <script src="Scripts/Main.js"></script>
+    <script>        
+        /* ------------------------------------------------------------------------------------------------------- */
+                                                /* <script Main.js> */           
+        /* ------------------------------------------------------------------------------------------------------ */
 
-        async function getData() {
-            try {
-                const vegDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/vegDetail.json");
-                const pinCodeDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/pincodes.json");
-                const priceDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/Price.json");
-
-                console.log(vegDetail.status, vegDetail.ok, pinCodeDetail.status, pinCodeDetail.ok, priceDetail.status, priceDetail.ok);
-
-                const items = await vegDetail.json();
-                const pinCodeItem = await pinCodeDetail.json();
-                const ID = pinCodeItem[pinCode];
-                const priceItem = await priceDetail.json();
-
-                price = priceItem[ID].data;
-                itemDisplay = items;
-
-                displayItem();
-            } 
-            catch (error) {
-                location.reload();
-            }
-        }
-
-        /* ----------------------------------------------------------------------------------------------------- */
-
-        function clearCart(){
-            tempSummary={};
-            summary=[];
-            summaryDOM();
-        }
-
-        /*Passing summary data on click*/
-
-        function goToCart() {
-
-            localStorage.setItem('summary', JSON.stringify(summary));
-            /* localStorage.setItem('tempSummary',JSON.stringify(tempSummary)); */
-            window.open(`./Cart.html`,`_self`);
-        }
-
-        /* ----------------------------------------------------------------------------------------------------- */
-
-        /* btn and Summary functioning for different screen size */
-
-        let btnToggle=false;
-        let maxWidthToggle=false;
-
-        function summaryBtn(){
-            if(btnToggle===false){
-                    btnToggle=true;
-                    document.querySelector('.Selected-Items').style.display='block';
-                }
-                else{
-                    btnToggle=false;
-                    document.querySelector('.Selected-Items').style.display='none';
-                }
-        }
-
-        function windowWidth(){
-            if(window.innerWidth>700){
-                btnToggle=false;
-                maxWidthToggle=false;
-                document.querySelector('.Selected-Items').style.display='block';
-            }else if(maxWidthToggle===false){
-                maxWidthToggle=true;
-                document.querySelector('.Selected-Items').style.display='none';
-            }
-            console.log(maxWidthToggle);
-            
-        }
-
-        function goToLogin(){
-            location.replace("index.html")
-        }
-
-        /* ----------------------------------------------------------------------------------------------------- */
-
-        window.addEventListener('resize',windowWidth);
-
-
-        tempSummaryData();
-        gettingUser();
-        getData();
-
+        window.addEventListener('resize', windowWidth);
+        settingUpPage();
     </script>
-
-
 </body>
-
 </html>
