@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet'  href='Styles/Index.css'>
     <link rel="stylesheet" href="Styles/General.css">
+    <script src="Scripts/loggedIn.js"></script>
 </head>
 <body>
     <header>
@@ -119,6 +120,9 @@
 
             localStorage.setItem("userLogIn",JSON.stringify(userLogIn));
 
+            const loginState=true;
+            localStorage.setItem("loginState",JSON.stringify(loginState));
+
             document.getElementById('Form').reset();
 
             localStorage.setItem('USER',JSON.stringify(user));
@@ -179,7 +183,10 @@
                 document.getElementById('validation').innerHTML="User Not Found !!"
                 document.getElementById('signInForm').reset();                
             }else{
-                if(mobileNo === getUser[email]){       
+                if(mobileNo === getUser[email]){
+                    const loginState=true;
+                    localStorage.setItem("loginState",JSON.stringify(loginState));
+
                     document.getElementById('signInForm').reset();         
                     location.replace("main.html");
                 }else{
