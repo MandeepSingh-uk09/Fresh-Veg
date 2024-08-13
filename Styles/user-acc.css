@@ -47,6 +47,15 @@
     flex-direction: column;
     text-align: center;
 }
+.optionName>div{
+    text-align: left;
+    border-bottom: 1px solid #bbb;
+}
+.goBack{
+    width: 10%;
+    aspect-ratio: 1/1;  
+    cursor: pointer;
+}
 .optionName>h4{
     margin: 0.3em 0;
     padding: 0.5em;
@@ -120,6 +129,7 @@
     font-style: italic;
     margin: 0;
     color: black;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
     font-weight: bold;
     padding: 0 1em;
 }
@@ -358,6 +368,11 @@
 
 /* responsive  */
 
+@media screen and (min-width:601px) {
+    .optionName>h4:first-of-type{
+        margin-top: 1em;
+    }
+}
 
 @media screen and (max-width:1000px) {
     .account{
@@ -368,6 +383,9 @@
 @media screen and (max-width:800px) {
     .account{
         width: 80%;
+    }
+    .goBack{
+        width: 15%;
     }
 }
 @media screen and (max-width:750px) and (min-width:601px) {
@@ -399,65 +417,59 @@
     }
     .optionName {
         flex-direction: row;
-        width: 70%;
+        width: 85%;
         justify-content: space-between;
     }
+    .optionName>div{
+        width: 7%;
+        margin-right: 2%;
+        border: none;
+        display: flex;
+        align-items: center;
+    }
+    .goBack{
+        width: 100%;
+    }
     .optionName>h4 {
-        width: 30%;
+        width: 28%;
         padding:  0.5em 0;
-        text-align: center; 
-
-
+        text-align: center;
     }
     .Logout{
-        width: 25%;
+        width: 8%;
         padding: 0;        
         margin: 0.3em 0;
-        justify-content: left;
+        justify-content: center;
     }
     .Logout>img{
-        margin-left: 5%;
-        width: 25%;
+        width: 80%;
     }
     .Logout>p{
-        width: 60%;
+        display: none;
     }
     .optionView{
         width: calc(100% - 2em);
     }
-
+    .optionView>p{
+        font-size: x-large;
+    }
     #Form>button{
         margin-top: 0;
     }
+
 }
 
 @media screen and (max-width:500px) {
     .account{
-        width: calc(95% - 2em);
+        width: calc(96%);
         background-image: none;
+        padding: 0;
     }
     .options{
         font-size: small;
     }
-    .optionName {
-        flex-direction: row;
-        width: 70%;
-        justify-content: space-between;
-    }
-    .optionName>h4 {
-        width: 32%;
-        margin: 0;
-        padding:  0.5em 0;
-        text-align: center; 
-
-
-    }
     .Logout{
-        width: 25%;
-        padding: 0;        
-        margin: 0;
-        justify-content: left;
-        height: calc(100% - 2px);
+        width: 10%;
     }
     .Password>input {
         margin: 0;
@@ -482,15 +494,6 @@
 }
 
 @media screen and (max-width:400px){
-    
-    .optionName{
-        width: 80%;
-    }
-    .optionName>h4 {
-        width: 32%;
-
-
-    }
     .Logout{
         width: 10%;
         justify-content: center;

@@ -52,18 +52,21 @@ header{
 .Search >div> input{
     border: none;
     background-color: transparent;
-    width: 80%;
+    width: 100%;
     min-height: 30px;
-    font-size: large;
+    font-size: medium;
     font-weight: lighter;
+    text-align: center;
 }
 
 .Search >div> input:focus{
     outline: none;
 }
 
-
+/* search is not available now  */
+/* display = none */
 .Search> div>button{
+    display: none;
     cursor: pointer;
     border: none;
     width: 10%;
@@ -76,18 +79,11 @@ header{
     min-width: 20px;
 }
 
-@media (max-width:100px) {
-    .Search{
-        display: none;
-    }   
-}
-
 /* NAVIGATION ----------------------------------------------------------------*/
 
 .Navigation{
     display: flex;
     align-items: center;
-    margin-right: 1em;
 }
 nav{
     display: flex;
@@ -114,22 +110,23 @@ nav > div>h3 {
     margin: 0;
     padding: 0 0.5em;
 }
-#Location>h6,h4{
+#Location>h6,
+#Location>h4{
     font-family: Arial, Helvetica, sans-serif;
     display: inline;
     margin: 0;
-    padding: 0 0.5em;
     padding: 0;
     text-align: right;
 }
 #Location{
     visibility: hidden;
+    margin-right: 1em;
 }
 
 
 .Navigation>img{
     cursor: pointer;
-    width: 1.5rem;
+    width: 2rem;
     padding-right: 1em;
 }
 
@@ -168,6 +165,9 @@ nav > div>h3 {
     #User{
         font-size: x-large;
     }
+    .Search >div> input{
+        font-size: small;
+    }
 }
 
 @media (max-width:600px) {
@@ -180,18 +180,4 @@ nav > div>h3 {
     .Search>div{
         width: 80%;
     }
-}
-
-@media (max-width:450px) {
-    #User{
-        display: none;
-    }
-    #Location{
-        padding-right: 0.5em;
-    }
-    .Navigation>img{
-        padding: 0;
-        width: 1.2rem;
-    }
-    
 }
