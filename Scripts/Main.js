@@ -174,6 +174,10 @@ function aboutUser() {
         usercard('User');
     }
     else {
+        /* reloading page if pincode is get changed */
+        if(pinCodeChange === true){  
+            location.reload();
+        };
         userToggle = false;
         document.getElementById('mainContent').style.display = "block";
         document.querySelector('.userAcc').style.display = "none";
@@ -241,7 +245,7 @@ function loadingDone() {
 /* fetching data from APIs */
 async function getData() {
     try {
-        const vegDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/vegDetail.json");
+        const vegDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/vegDetail.json");        
         const pinCodeDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/pincodes.json");
         const priceDetail = await fetch("https://mandeepsingh2101700.github.io/JSONapi/Price.json");
 
@@ -262,7 +266,25 @@ async function getData() {
         loadingDone();
     }
     catch (error) {
-        location.reload();
+        document.getElementById('loader').innerHTML=
+        `<div class="error" style="display:block">
+            <lottie-player 
+                src="Images/Lottie/ERROR.json" 
+                background="transparent" 
+                speed="1.3" 
+                style="width: 100%; height: 100%" 
+                direction="1" 
+                mode="normal" 
+                autoplay
+                loop
+            >
+        </div>
+
+        <div class="errorMSG" style="display:block">
+            <h2>PLEASE CHECK YOUR ADDRESS (PinCODE)</h2>
+            <h4>Or <span id="logoutSpan" onclick="goToLogin()">Logout</span> and SignUP Again</h4>
+        </div>
+        `;
     }
 }
 
@@ -288,6 +310,9 @@ let price = JSON.parse(localStorage.getItem("price")) || null;
 
 /* 1.d */
 let itemDisplay = JSON.parse(localStorage.getItem("itemDisplay")) || null;
+
+/* 1.e Checking if picode is changed by user And updating the details according to it */
+let pinCodeChange= false;
 
 /* ----------------------------------------------------------------------------------------------------- */
                                 /* 2 checking for previous data stored by getData() */
@@ -387,6 +412,9 @@ function addItem(ID) {
     /* Setting up values to selected item to null, 3.a & 3.b*/
     totalWT = 0;
     CartVegID = null;
+    
+    /* storing summary item in the localstorage so it will not get lost on page reloading */
+    localStorage.setItem('summary', JSON.stringify(summary));
 
     /* Displaying itemn in the Summary Card preview */
     summaryDOM();
@@ -400,6 +428,7 @@ function addItem(ID) {
 function clearCart() {
     tempSummary = {};
     summary = [];
+    localStorage.removeItem("summary");
     summaryDOM();
 }
 
@@ -513,52 +542,52 @@ function editAddress() {
                         <div class="input">
                             <div class="Label">
                                 <label class="Input-Label" for="Name">Name</label>
-                                <input id="Name" type="text" required value=${User.Name}>
+                                <input id="Name" type="text" required value="${User.Name}">
                             </div>
                             <div class="Label">
                                 <label class="Input-Label" for="Mobile">Mobile No.</label>
-                                <input id="Mobile" type="number" minlength="10" maxlength="10" required value=${User.Mobile_No}>
+                                <input id="Mobile" type="number" minlength="10" maxlength="10" required value="${User.Mobile_No}">
                             </div>                  
                         </div>
     
                         <div class="input">
                             <div class="Label">
                                 <label class="Input-Label" for="Email">Email</label>
-                                <input id="Email" type="email" required value=${User.Email}>
+                                <input id="Email" type="email" required value="${User.Email}">
                             </div>
                         </div>
     
                         <div class="input">
                             <div class="Label">
                                 <label class="Input-Label" for="HouseNo">House No.</label>
-                                <input id="HouseNo" type="text" value=${User.House_No}>
+                                <input id="HouseNo" type="text" value="${User.House_No}">
                             </div>                                        
                             <div class="Label">
                                 <label class="Input-Label" for="Area">Area</label>                        
-                                <input id="Area" type="text" value=${User.Area}>
+                                <input id="Area" type="text" value="${User.Area}">
                             </div>
                         </div>
     
                         <div class="input">
                             <div class="Label">
                                 <label class="Input-Label" for="City">City</label>
-                                <input id="City" type="text" value=${User.City}>
+                                <input id="City" type="text" value="${User.City}">
                             </div>                    
                             <div class="Label">
                                 <label class="Input-Label" for="State">State</label>
-                                <input id="State" type="text"value=${User.State}>
+                                <input id="State" type="text"value="${User.State}">
                             </div>
                             
                         </div>
                         <div class="input">
                             <div class="Label">
                                 <label class="Input-Label" for="Pin-Code">Pin Code</label>
-                                <input id="Pin-Code" type="number" minlength="6" maxlength="6" required value=${User.Pin_Code}>
+                                <input id="Pin-Code" type="number" minlength="6" maxlength="6" required value="${User.Pin_Code}">
                             </div>                        
                         </div>
     
                         <button id="ChangeAddress">Change Address</button>
-                    </form>`
+                    </form>`;
 }
 
 /*9.b Udating User Address */
@@ -587,9 +616,18 @@ function saveAddress() {
     localStorage.setItem('USER', JSON.stringify(user));
     document.getElementById('address-P').innerHTML = "ADDRESS CHANGED SUCCESSFULLY";
 
+    /* if pincode is get changed remove prices and item display so that new data can be loaded acc to pincode*/
+    if( user.Pin_Code !== pinCode ){
+        pinCodeChange=true;
+        localStorage.removeItem("price");
+        localStorage.removeItem("itemDisplay");        
+        clearCart();
+    }
+    
     /* Going back to address menu */
-    setTimeout(() => {
-        User = JSON.parse(localStorage.getItem("USER"));
+    setTimeout(() => {        
+        /* Setting up nav address acc to the updated one */
+        gettingUser();
         usercard("Address");
     }, 1000
     )
